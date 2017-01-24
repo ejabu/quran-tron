@@ -1,0 +1,120 @@
+.nav {
+  background-color: #f1f1f1;
+  color: black;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.nav box {
+  border: 1px solid black;
+}
+
+.searchContainer {
+  /*margin: 10px auto 10px 110px!important;*/
+  margin: 10px auto 10px 10px!important;
+  display: inline-flex;
+}
+
+.logo {
+  font-family: "Eja2";
+  margin: 8px 20px 10px 5px !important;
+  font-size: 23px !important;
+  cursor: pointer;
+  /*color: #303030;*/
+  /*color: rgba(0, 0, 0, .6);*/
+  background-color: transparent !important;
+  border: 0px solid black !important;
+  padding: 0px !important;
+  background: -webkit-linear-gradient(left, rgb(69, 127, 202), rgb(86, 145, 200));
+  /*background: -webkit-linear-gradient(left, rgb(255, 95, 109), rgb(255, 195, 113));*/
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.logo:hover {
+  /*color: black;*/
+  /*color: rgba(0,0,0,.8);
+  border: 0px solid black !important;*/
+  /*background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;*/
+  background: -webkit-linear-gradient(left, rgb(255, 95, 109), rgb(255, 195, 113));
+  /*background: -webkit-linear-gradient(left, rgb(170, 7, 107), rgb(97, 4, 95));*/
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+
+
+.logo:focus {
+  /*color: black;*/
+  /*color: rgba(0, 0, 0, .8);*/
+  background: -webkit-linear-gradient(left, rgb(255, 95, 109), rgb(255, 195, 113));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: 0px solid black !important;
+  outline-color: transparent;
+}
+
+.dropdown {
+  position: absolute;
+  /*color: #d1d1d1;*/
+  color: rgba(0, 0, 0, .6);
+  /*border: 1px solid #d1d1d1;*/
+  top: 60px;
+  left: 10px;
+  padding: 7px 25px;
+  /*padding: 5px 30px;*/
+  border-radius: 4px;
+  z-index: 6;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, .03), 0 0 1px rgba(0, 0, 0, .13);
+}
+
+.dropdown:before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  top: -15px;
+  position: absolute;
+  left: 25px;
+  transform: rotate(45deg) translate(6px, 6px);
+  box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.14);
+}
+
+.dropdown:hover {
+  /*text-decoration: underline;*/
+  color: rgba(0, 0, 0, .8);
+}
+
+
+/*
+.dropdown {
+  position: absolute;
+  color: #303030;
+  border: 1px solid #d1d1d1;
+  top: 60px;
+  left: 10px;
+  padding: 5px 30px;
+  z-index: 6;
+  background-color: white;
+}
+
+.dropdown:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #FFFFFF transparent;
+  top: -20px;
+  left: 25px;
+  box-shadow: -1px -1px 1px -1px rgba(0,0,0,.44);
+
+}*/

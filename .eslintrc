@@ -1,0 +1,52 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true
+  },
+  "rules": {
+    "arrow-parens": ["off"],
+    "consistent-return": "off",
+    "comma-dangle": "off",
+    # "spaced-comment": ["error", "never"],
+    "no-unused-vars": 0,
+    "no-param-reassign": 0,
+    "no-console": 0,
+    "comma-spacing": 0,
+    "max-len": 0,
+    "react/self-closing-comp": ["error", {"component": true, "html": true }],
+    "generator-star-spacing": "off",
+    "import/no-unresolved": ["error", { "ignore": ["electron"] }],
+    "import/no-extraneous-dependencies": "off",
+    "no-use-before-define": "off",
+    "promise/param-names": 2,
+    "promise/always-return": 2,
+    "promise/catch-or-return": 2,
+    "promise/no-native": 0,
+    "react/jsx-no-bind": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    # "object-curly-spacing": ["error", "never"],
+    # "object-curly-spacing": ["error", "never"],
+    "class-methods-use-this": 0,
+    "react/prop-types": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "object-curly-spacing": [2, "always"],
+    "react/prefer-stateless-function": "off",
+    "flowtype-errors/show-errors": 2
+  },
+  "plugins": [
+    "flowtype-errors",
+    "import",
+    "promise",
+    "react"
+  ],
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.eslint.js"
+      }
+    }
+  }
+}
