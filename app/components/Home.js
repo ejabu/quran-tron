@@ -37,7 +37,7 @@ export default class Home extends Component {
       // padding: "20px",
       // margin: "20px"
       display: "inline-block",
-
+      height: "100%",
       border: "3px solid black"
     };
     var kerupuk = {
@@ -92,9 +92,9 @@ export default class Home extends Component {
       <div className={styles.container}>
 
           <Resizable
-          customClass="item"
+          customClass="submenu"
           width={320}
-          height={200}
+          height={"100%"}
           minWidth={160}
           minHeight={160}
           maxWidth={480}
