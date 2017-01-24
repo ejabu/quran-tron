@@ -7,6 +7,7 @@ import Resizable from 'react-resizable-box';
 
 import styles from './Home.css';
 // import NavBar from './NavBar/NavBar';
+import Submenu from './Submenu/Submenu';
 import Result from './Result/Result';
 import * as CounterActions from '../actions/counter';
 import Content from './Content/Content';
@@ -39,6 +40,7 @@ export default class Home extends Component {
       // margin: "20px"
       display: "inline-block",
       height: "100%",
+      width: "100%",
       borderRight: "1px solid rgba(0,0,0,.07)",
 
     };
@@ -108,10 +110,8 @@ export default class Home extends Component {
           onResizeStop = {onResizeStopEja.bind(this)}
           >
             <div style={divStyle}>
-              hehasdas dasasd
-              asdasdasd
-              assert.deepEqual(actual, expected
-              ); asdasds asdasde</div>
+              <Submenu/>
+            </div>
           </Resizable>
           <div style={mainContentStyle}>
             <Content/>
