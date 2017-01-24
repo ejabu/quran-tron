@@ -11,5 +11,5 @@
   height: calc(100vh);
   outline: 1px solid;
   bottom: 0;
-  overflow: auto;
+  overflow: hidden;
 }

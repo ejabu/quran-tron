@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Resizable from 'react-resizable-box';
 
 import styles from './Home.css';
-import NavBar from './NavBar/NavBar';
+// import NavBar from './NavBar/NavBar';
 import Result from './Result/Result';
 import * as CounterActions from '../actions/counter';
 
@@ -28,7 +28,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: '40%'
+      width: '320px'
     };
   }
   render() {
@@ -48,11 +48,15 @@ export default class Home extends Component {
     };
     var ejaStyle = {
       background: "#eee",
-      width: this.state.width,
       border: "3px solid black",
       display: "inline-block",
       position: "absolute",
+      top:"0px",
+      left:this.state.width,
+      right:"0px",
+      bottom:"0px",
       zIndex:"5",
+      overflow:"hidden",
 
     };
     var handleStyle = {
@@ -77,7 +81,8 @@ export default class Home extends Component {
       var width_awal = 320;
       var width_akhir = styleSize.width;
       var delta = width_awal - width_akhir
-      var toSet2 = { width: 'calc( 40% + '+ delta+ 'px )' }
+      // var toSet2 = { width: 'calc( 40% + '+ delta+ 'px )' }
+      var toSet2 = { width:  styleSize.width+ 'px' }
       console.log(toSet2);
       this.setState(toSet2);
 
@@ -85,33 +90,31 @@ export default class Home extends Component {
     var isResizableDict = {top:false, right:true, bottom:false, left:false, topRight:false, bottomRight:false, bottomLeft:false, topLeft:false}
     return (
       <div className={styles.container}>
-        <NavBar {...this.props} />
-        <div className={styles.result}>
 
-          <Result {...this.props} />
-        </div>
-        <Resizable
-        customClass="item"
-        width={320}
-        height={200}
-        minWidth={160}
-        minHeight={160}
-        maxWidth={480}
-        maxHeight={480}
-        isResizable={ isResizableDict }
-        handleStyle = {handleStyle}
-        customStyle={kerupuk}
-        onResizeStop = {onResizeStopEja.bind(this)}
-        >
-        <div style={divStyle}>hehasdas dasasd
-          asdasdasd
-          assert.deepEqual(actual, expected
-          ); asdasds asdasde</div>
-        </Resizable>
-        <div style={ejaStyle}>hehasdas dasasd
-          asdasdasd
-          assert.deepEqual(actual, expected
-          ); asdasds asdasde</div>
+          <Resizable
+          customClass="item"
+          width={320}
+          height={200}
+          minWidth={160}
+          minHeight={160}
+          maxWidth={480}
+          maxHeight={480}
+          isResizable={ isResizableDict }
+          handleStyle = {handleStyle}
+          customStyle={kerupuk}
+          onResizeStop = {onResizeStopEja.bind(this)}
+          >
+            <div style={divStyle}>
+              hehasdas dasasd
+              asdasdasd
+              assert.deepEqual(actual, expected
+              ); asdasds asdasde</div>
+          </Resizable>
+          <div style={ejaStyle}>
+            hehasdas dasasd
+            asdasdasd
+            assert.deepEqual(actual, expected
+            ); asdasds asdasde</div>
       </div>
 
     );
