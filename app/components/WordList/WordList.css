@@ -64,26 +64,6 @@
   border: 1px solid blue;
 }
 
-a {
-  color: white;
-  opacity: 1.0;
-}
-
-a:before {
-  font-family: "EvilIcons";
-  content: '\F139';
-  display: inline-block;
-  padding-right: 3px;
-  vertical-align: middle;
-  /*font-weight: 900;*/
-  color: white;
-}
-
-a:hover {
-  color: white;
-  vertical-align: middle;
-}
-
 .box9 {
   display: flex;
   float: right;

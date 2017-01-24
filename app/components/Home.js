@@ -9,6 +9,7 @@ import styles from './Home.css';
 // import NavBar from './NavBar/NavBar';
 import Result from './Result/Result';
 import * as CounterActions from '../actions/counter';
+import Content from './Content/Content';
 
 @connect(
   state => ({
@@ -33,12 +34,12 @@ export default class Home extends Component {
   }
   render() {
     var divStyle = {
-      background: "#eee",
+      // background: "#eee",
       // padding: "20px",
       // margin: "20px"
       display: "inline-block",
       height: "100%",
-      border: "3px solid black"
+      borderRight: "1px solid #3d3d3d"
     };
     var kerupuk = {
       display: "inline-block",
@@ -47,8 +48,9 @@ export default class Home extends Component {
 
     };
     var ejaStyle = {
-      background: "#eee",
-      border: "3px solid black",
+      // background: "#eee",
+      background: "#fff",
+      // border: "3px solid black",
       display: "inline-block",
       position: "absolute",
       top:"0px",
@@ -111,10 +113,8 @@ export default class Home extends Component {
               ); asdasds asdasde</div>
           </Resizable>
           <div style={ejaStyle}>
-            hehasdas dasasd
-            asdasdasd
-            assert.deepEqual(actual, expected
-            ); asdasds asdasde</div>
+            <Content/>
+          </div>
       </div>
 
     );

@@ -1,0 +1,14 @@
+
+.transWrapper {
+  max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0 40px;
+}
+
+.arabic{
+  direction: rtl;
+  font-size: 64px;
+  line-height: 75px;
+  font-family: "Uthmanic";
+  padding: 11px 12px 4px;
+}
