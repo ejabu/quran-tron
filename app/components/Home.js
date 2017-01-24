@@ -39,7 +39,8 @@ export default class Home extends Component {
       // margin: "20px"
       display: "inline-block",
       height: "100%",
-      borderRight: "1px solid #3d3d3d"
+      borderRight: "1px solid rgba(0,0,0,.07)",
+
     };
     var kerupuk = {
       display: "inline-block",
@@ -47,7 +48,7 @@ export default class Home extends Component {
 
 
     };
-    var ejaStyle = {
+    var mainContentStyle = {
       // background: "#eee",
       background: "#fff",
       // border: "3px solid black",
@@ -58,7 +59,7 @@ export default class Home extends Component {
       right:"0px",
       bottom:"0px",
       zIndex:"5",
-      overflow:"hidden",
+      overflowY:"auto",
 
     };
     var handleStyle = {
@@ -112,7 +113,7 @@ export default class Home extends Component {
               assert.deepEqual(actual, expected
               ); asdasds asdasde</div>
           </Resizable>
-          <div style={ejaStyle}>
+          <div style={mainContentStyle}>
             <Content/>
           </div>
       </div>
