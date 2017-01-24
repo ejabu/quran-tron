@@ -51,7 +51,7 @@ export default class Content extends Component {
   }
 
   loadContent = () => {
-    quranDB.find({ c: /78/ , v: /2/ }, this.doSomething);
+    quranDB.find({ c: /78/ , v: /38/ }, this.doSomething);
   }
 
   render() {
@@ -69,7 +69,9 @@ export default class Content extends Component {
           <div className={styles.arabic}>
             {this.state.arabic}
           </div>
-          {this.state.bahasa}
+          <div className={styles.bahasa}>
+            {this.state.bahasa}
+          </div>
         </div>
         <div>
           <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
