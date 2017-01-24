@@ -252,12 +252,15 @@ a.float-left:before {
   font-family: "EvilIcons";
 }
 
+a.searchBox:before {
+  /*content: "\f103";*/
+  content: "\f139";
+  font-family: "EvilIcons";
+  color: #fff;
+}
+
 .float-right {
   right: 0px;
-  a:before {
-    content: "\f10d";
-    font-family: "EvilIcons";
-  }
 }
 
 .navigation {

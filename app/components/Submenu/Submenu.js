@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './Submenu.css';
+import SearchBox from './SearchBox/SearchBox';
 
 export default class Submenu extends Component {
 
@@ -33,7 +34,8 @@ export default class Submenu extends Component {
     return (
       <div className={styles.mainWrapper}>
         <div>
-          <grey>Examples of</grey> {this.props.currentWord}
+          <SearchBox {...this.props} />
+          <grey>Search of</grey>
         </div>
         <div className={styles.itemBox}>
           {/* {items.map((item, index) => (this.renderTranslations(item, index, choosenIndex)))} */}

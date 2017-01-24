@@ -34,11 +34,14 @@ export default class Home extends Component {
     };
   }
   render() {
-    var divStyle = {
+    var submenuStyle = {
       // background: "#eee",
       // padding: "20px",
       // margin: "20px"
       display: "inline-block",
+      // background: "#fff",//backgroundsubmenu
+      background: "#fafafa",//backgroundsubmenu
+
       height: "100%",
       width: "100%",
       borderRight: "1px solid rgba(0,0,0,.07)",
@@ -69,7 +72,7 @@ export default class Home extends Component {
         position: 'absolute',
         width: '60px',
         height: '100%',
-        top: '0px',
+        top: '50px',
         right: '-30px',
         cursor: 'ew-resize'
       },
@@ -109,7 +112,7 @@ export default class Home extends Component {
           customStyle={kerupuk}
           onResizeStop = {onResizeStopEja.bind(this)}
           >
-            <div style={divStyle}>
+            <div style={submenuStyle}>
               <Submenu/>
             </div>
           </Resizable>
