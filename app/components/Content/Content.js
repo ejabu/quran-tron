@@ -28,9 +28,9 @@ export default class Content extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('componentWillReceiveProps');
-    console.log(nextProps);
-    QueryParser(nextProps.query)
+    var neQuery = QueryParser(nextProps.query)
+    quranDB.find(neQuery, this.doSomething);
+
   }
 
   prevIndex = (event) => {
@@ -48,6 +48,8 @@ export default class Content extends Component {
   doSomething = (err, data) => {
     if (err) return console.log(err);
     if (data===undefined) return console.log('undefined');
+    console.log('data');
+    console.log(data);
     this.setState({
       arabic: data[0]['a'],
       index:  data[0]['i'],
@@ -60,11 +62,13 @@ export default class Content extends Component {
   loadContent = () => {
     quranDB.find({ c: /78/ , v: /38/ }, this.doSomething);
   }
+  // tesSearch = () => {
+  //   quranDB.find({ c: "78" , v: "2" }, this.doSomething);
+  // }
 
   render() {
     const items = this.props.translations;
     const choosenIndex = this.state.index;
-    console.log(this.props);
     return (
       <div className={styles.transWrapper}>
 
@@ -83,6 +87,7 @@ export default class Content extends Component {
         <div>
           <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
           <a onMouseDown={this.nextIndex.bind(this)} className="navigation float-right " ></a>
+          {/* <a onMouseDown={this.tesSearch.bind(this)} className="navigation float-right " ></a> */}
         </div>
 
       </div>
