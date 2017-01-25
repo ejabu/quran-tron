@@ -26,11 +26,11 @@ export default class Submenu extends Component {
       </div>
     );
   }
+
   render() {
     const items = this.props.translations;
     // const items = this.props.suggestions;
     const choosenIndex = this.state.index;
-    console.log(this.props);
     return (
       <div className={styles.mainWrapper}>
         <div>

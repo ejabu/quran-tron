@@ -48,28 +48,9 @@ export default class SearchBox extends Component {
     });
   }
   handleChange(event) {
-    console.log('handleChange');
     const { dispatch } = this.props;
     const query = event.target.value;
-    if (this.timeout_suggest) {
-      clearTimeout(this.timeout_suggest);
-    }
-    if (this.timeout_result) {
-      clearTimeout(this.timeout_result);
-    }
-    if (event.target.value !== '') {
-      this.timeout_suggest = setTimeout(() => {
-        console.log('timeout_suggest');
-
-        queryChanged(dispatch);
-      }, 250);
-      this.timeout_result = setTimeout(() => {
-        console.log('timeout_result');
-
-        this.delayPassQuery(query);
-      }, 2500);
-    }
-    this.setState({ search: event.target.value, search2: event.target.value, index: 0 });
+    this.setState({ search: event.target.value, search2: event.target.value });
   }
 
 
@@ -131,15 +112,8 @@ export default class SearchBox extends Component {
 
     if (event.key === 'Enter') {
       if (event.target.value !== '') {
-        this.passQuery();
-        this.setState({ expanded: false });
-        // this.timeout = setTimeout(() => {
-        // }, 1000);
+        this.props.searchCallback(event.target.value)
       }
-    } else if (event.keyCode === 38) {
-      this.arrowUp();
-    } else if (event.keyCode === 40) {
-      this.arrowDown();
     }
   }
 
@@ -153,7 +127,7 @@ export default class SearchBox extends Component {
             <a className="searchBox"></a>
           </div>
           <div className={styles.box10}>
-            <input type="text" value={this.state.search} onKeyDown={this.handleKeyDown.bind(this)} onBlur={this.collapse.bind(this)} onFocus={this.expand.bind(this)} onChange={this.handleChange.bind(this)} />
+            <input type="text" value={this.state.search}  onKeyDown={this.handleKeyDown.bind(this)} onChange={this.handleChange.bind(this)} />
           </div>
         </div>
 

@@ -30,18 +30,26 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: '320px'
+      width: '320px',
+      query: '',
     };
   }
+
+  searchCallback = (query) => {
+    var toSet2 = { query:  query }
+    console.log(this);
+    console.log('toSet2');
+    console.log(toSet2);
+    this.setState(toSet2);
+  }
+
+
   render() {
     var submenuStyle = {
       // background: "#eee",
-      // padding: "20px",
-      // margin: "20px"
       display: "inline-block",
       // background: "#fff",//backgroundsubmenu
       background: "#fafafa",//backgroundsubmenu
-
       height: "100%",
       width: "100%",
       borderRight: "1px solid rgba(0,0,0,.07)",
@@ -113,11 +121,11 @@ export default class Home extends Component {
           onResizeStop = {onResizeStopEja.bind(this)}
           >
             <div style={submenuStyle}>
-              <Submenu/>
+              <Submenu searchCallback={this.searchCallback}/>
             </div>
           </Resizable>
           <div style={mainContentStyle}>
-            <Content/>
+            <Content query={this.state.query}/>
           </div>
       </div>
 

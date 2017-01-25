@@ -8,6 +8,7 @@ var fs = require('fs');
 var Datastore = require('nedb');
 // var db = new Datastore();
 var quranDB = new Datastore({ filename: 'G:/quran.db', autoload: false, onload:function(error) {console.log('haha');} });
+import { QueryParser } from './SearchEngine';
 
 
 export default class Content extends Component {
@@ -24,6 +25,12 @@ export default class Content extends Component {
   }
   componentDidMount(){
     quranDB.loadDatabase(this.loadContent);
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.log('componentWillReceiveProps');
+    console.log(nextProps);
+    QueryParser(nextProps.query)
   }
 
   prevIndex = (event) => {
