@@ -5,12 +5,8 @@ import { Link } from 'react-router';
 import styles from './Submenu.css';
 import SearchBox from './SearchBox/SearchBox';
 
-var remote = require('electron').remote;
-var fs = require('fs');
-var Datastore = require('nedb');
-var quranDB = new Datastore({ filename: 'D:/quranSearch.db', autoload: false, onload:function(error) {console.log('haha');} });
 
-@connect(state => ({ verseIndex: state.verseIndex }),)
+@connect(state => ({ verseIndex: state.verseIndex , result: state.result}),)
 export default class Submenu extends Component {
   constructor(props) {
     super(props);
@@ -22,40 +18,14 @@ export default class Submenu extends Component {
       result:[],
     };
   }
-  componentDidMount(){
-    quranDB.loadDatabase();
-  }
-  componentDidUpdate(nextProps, nextStates){
-    const { verseIndex } = this.props;
-    quranDB.find(nextProps.verseIndex, this.doSomething);
-  }
-  doSomething = (err, data) => {
-    if (err) return console.log(err);
-    if (data===undefined) return console.log('undefined');
-    console.log('doSomething');
-    console.log(data);
-    // this.setState(
-    //   {
-    //     result : data
-    //   }
-    // )
-    // const { dispatch } = this.props;
-    // console.log(data);
-    // // updateVerseIndex(dispatch, data[0])
-    // this.setState({
-    //   arabic: data[0]['a'],
-    //   index:  data[0]['i'],
-    //   bahasa:  data[0]['b'],
-    //   chapter:  data[0]['c'],
-    //   verse:  data[0]['v'],
-    // });
-  }
-  renderTranslations(props, index) {
+
+  renderResult(item, index) {
+    console.log('RENDER RESULT', index);
+    console.log(item);
     return (
       <div className={styles.item} key={index}>
-        {/* <li key={index}  className={style}>{props.name}</li> */}
-        {/* <textarea rows="1" /> */}
-        <div >{props}</div>
+        <div >{item.c} : {item.v}</div>
+        <div >{item.b}</div>
       </div>
     );
   }
@@ -63,8 +33,9 @@ export default class Submenu extends Component {
   render() {
     const items = this.state.result;
     // const items = this.props.suggestions;
-    const { verseIndex } = this.props;
-    console.log(verseIndex);
+    const { verseIndex, result } = this.props;
+    console.log('result FROM SUBMENu');
+    console.log(result);
     // let tes = verseIndex.b.toString()
     return (
       <div className={styles.mainWrapper}>
@@ -73,7 +44,7 @@ export default class Submenu extends Component {
           <grey>Search of </grey>
         </div>
         <div className={styles.itemBox}>
-          {items.map((item, index) => (this.renderResult(item, index)))}
+          {result.map((item, index) => (this.renderResult(item, index)))}
         </div>
       </div>
     );

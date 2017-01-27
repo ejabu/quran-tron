@@ -15,7 +15,7 @@ function findByKeyword(query) {
   // return {c: regexChapter, v: regexVerse}
 }
 
-export function QueryParser(dispatch, query) {
+export function QueryParser(query) {
   console.log('Query to parse : ' + query);
   var neQuery = {c: 115, v: 1};
   if (query.indexOf(':') > -1) {
@@ -23,7 +23,7 @@ export function QueryParser(dispatch, query) {
   }
   else if (query) {
     neQuery = findByKeyword(query)
-    searchQuery(dispatch, neQuery)
+    // searchQuery(dispatch, neQuery)
   }
 
   return neQuery

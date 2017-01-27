@@ -3,10 +3,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './SearchBox.css';
-import { queryChanged, resultChanged } from '../../../actions/suggestions';
+import { resultChanged } from '../../../actions/verseIndex';
 import { QueryParser } from './SearchEngine';
 
-@connect(state => ({ verseIndex: state.verseIndex }),)
+var remote = require('electron').remote;
+var fs = require('fs');
+var Datastore = require('nedb');
+var quranDB = new Datastore({ filename: 'D:/quranSearchNew.db', autoload: false, onload:function(error) {console.log('haha');} });
+
+@connect(state => ({ verseIndex: state.verseIndex , result: state.result}),)
 export default class SearchBox extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +20,9 @@ export default class SearchBox extends Component {
       search2: '',
       index: 0
     };
+  }
+  componentDidMount(){
+    quranDB.loadDatabase();
   }
 
   handleChange(event) {
@@ -32,14 +40,24 @@ export default class SearchBox extends Component {
         }
         else{
           console.log('bukan :');
-          QueryParser(dispatch, event.target.value)
-          // var neQuery = QueryParser(event.target.value)
-          // console.log(neQuery);
+          // QueryParser(dispatch, event.target.value)
+          var neQuery = QueryParser(event.target.value)
+          console.log(neQuery);
+          quranDB.find(neQuery, this.doSomething);
         }
       }
     }
   }
 
+  doSomething = (err, data) => {
+    if (err) return console.log(err);
+    if (data===undefined) return console.log('undefined');
+    console.log('doSomethingSearchBox');
+    console.log(this);
+    console.log(data);
+    const { dispatch } = this.props;
+    resultChanged(dispatch,data)
+  }
   render() {
     const items = this.props.suggestions;
     const choosenIndex = this.state.index;

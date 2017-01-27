@@ -50,7 +50,7 @@ export default class Home extends Component {
       display: "inline-block",
       // background: "#fff",//backgroundsubmenu
       background: "#fafafa",//backgroundsubmenu
-      height: "100%",
+      height: "100vh",
       width: "100%",
       borderRight: "1px solid rgba(0,0,0,.07)",
 
@@ -76,7 +76,7 @@ export default class Home extends Component {
     var handleStyle = {
       right: {
         position: 'absolute',
-        width: '60px',
+        width: '30px',
         height: '100%',
         top: '50px',
         right: '-30px',
