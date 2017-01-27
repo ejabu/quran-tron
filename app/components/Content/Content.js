@@ -10,7 +10,7 @@ var Datastore = require('nedb');
 var quranDB = new Datastore({ filename: 'G:/quran.db', autoload: false, onload:function(error) {console.log('haha');} });
 import { QueryParser } from './SearchEngine';
 
-
+@connect(state => ({ verseIndex: state.verseIndex }),)
 export default class Content extends Component {
 
   constructor(props) {

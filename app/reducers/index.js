@@ -6,10 +6,12 @@ import posts from './posts';
 import posts2 from './posts2';
 import suggestions from './suggestions';
 import translations from './translations';
+import verseIndex from './verseIndex';
 import result from './result';
 
 const rootReducer = combineReducers({
   counter,
+  verseIndex,
   posts,
   posts2,
   suggestions,
