@@ -12,7 +12,6 @@ function findByKeyword(query) {
 }
 
 export function QueryParser(query) {
-  console.log('Query to parse : ' + query);
   var neQuery = {c: 115, v: 1};
   if (query.indexOf(':') > -1) {
     neQuery = findByIndex(query)
