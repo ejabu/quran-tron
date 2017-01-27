@@ -55,11 +55,9 @@ export default class Home extends Component {
       borderRight: "1px solid rgba(0,0,0,.07)",
 
     };
-    var kerupuk = {
+    var submenuDraggableStyle = {
       display: "inline-block",
       zIndex:"9",
-
-
     };
     var mainContentStyle = {
       // background: "#eee",
@@ -87,21 +85,12 @@ export default class Home extends Component {
     }
 
     var onResizeStopEja = function(direction, styleSize, clientSize, delta){
-      console.log('eja')
-      console.log(this)
-      console.log(styleSize)
-      console.log(delta)
-      // this.setState({ width: (parseInt(this.state.width)-parseInt(delta.width))+'px' });
-      console.log('calc('+this.state.width+' - '+delta.width+' )px');
       var toSet = { width: 'calc('+this.state.width+' - '+delta.width+'px )' }
       var width_awal = 320;
       var width_akhir = styleSize.width;
       var delta = width_awal - width_akhir
-      // var toSet2 = { width: 'calc( 40% + '+ delta+ 'px )' }
       var toSet2 = { width:  styleSize.width+ 'px' }
-      console.log(toSet2);
       this.setState(toSet2);
-
     }
     var isResizableDict = {top:false, right:true, bottom:false, left:false, topRight:false, bottomRight:false, bottomLeft:false, topLeft:false}
     return (
@@ -117,7 +106,7 @@ export default class Home extends Component {
           maxHeight={480}
           isResizable={ isResizableDict }
           handleStyle = {handleStyle}
-          customStyle={kerupuk}
+          customStyle={submenuDraggableStyle}
           onResizeStop = {onResizeStopEja.bind(this)}
           >
             <div style={submenuStyle}>

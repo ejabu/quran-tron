@@ -127,14 +127,10 @@ export default class SearchBox extends Component {
     resultChanged(dispatch, query);
   }
   handleKeyDown = (event) => {
-    this.setState({ expanded: true });
-
+    event.stopPropagation();
     if (event.key === 'Enter') {
       if (event.target.value !== '') {
         this.passQuery();
-        this.setState({ expanded: false });
-        // this.timeout = setTimeout(() => {
-        // }, 1000);
       }
     } else if (event.keyCode === 38) {
       this.arrowUp();
