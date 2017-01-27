@@ -4,13 +4,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './Content.css';
 import { updateVerseIndex } from '../../actions/verseIndex';
+import { QueryParser } from './SearchEngine';
 
 var remote = require('electron').remote;
 var fs = require('fs');
 var Datastore = require('nedb');
-// var db = new Datastore();
 var quranDB = new Datastore({ filename: 'D:/quran.db', autoload: false, onload:function(error) {console.log('haha');} });
-import { QueryParser } from './SearchEngine';
 
 @connect(state => ({ verseIndex: state.verseIndex }),)
 export default class Content extends Component {
@@ -53,6 +52,7 @@ export default class Content extends Component {
     if (err) return console.log(err);
     if (data===undefined) return console.log('undefined');
     const { dispatch } = this.props;
+    console.log(data);
     // updateVerseIndex(dispatch, data[0])
     this.setState({
       arabic: data[0]['a'],
