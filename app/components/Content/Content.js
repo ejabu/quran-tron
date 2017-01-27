@@ -36,14 +36,16 @@ export default class Content extends Component {
   prevIndex = (event) => {
     event.stopPropagation();
     var nextAyah = parseInt(this.state.index)-1
-    var regex = new RegExp(nextAyah, "g")
-    quranDB.find({ i: regex}, this.doSomething);
+    var nextAyahStr = nextAyah.toString()
+    var query = { i: nextAyahStr}
+    quranDB.find(query, this.doSomething);
   }
   nextIndex = (event) => {
     event.stopPropagation();
     var nextAyah = parseInt(this.state.index)+1
-    var regex = new RegExp(nextAyah, "g")
-    quranDB.find({ i: regex}, this.doSomething);
+    var nextAyahStr = nextAyah.toString()
+    var query = { i: nextAyahStr}
+    quranDB.find(query, this.doSomething);
   }
   doSomething = (err, data) => {
     if (err) return console.log(err);
@@ -60,7 +62,7 @@ export default class Content extends Component {
   }
 
   loadContent = () => {
-    quranDB.find({ c: /78/ , v: /38/ }, this.doSomething);
+    quranDB.find({ c: "20" , v: "2" }, this.doSomething);
   }
   // tesSearch = () => {
   //   quranDB.find({ c: "78" , v: "2" }, this.doSomething);
