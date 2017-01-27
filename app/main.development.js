@@ -89,6 +89,24 @@ app.on('ready', async() => {
       ]).popup(mainWindow);
     });
   }
+  else {
+    mainWindow.webContents.on('context-menu', (e, props) => {
+      const {x, y} = props;
+
+      Menu.buildFromTemplate([
+        {
+          label: 'Cut',
+          role: 'cut'
+        }, {
+          label: 'Copy',
+          role: 'copy'
+        }, {
+          label: 'Paste',
+          role: 'paste'
+        }
+      ]).popup(mainWindow);
+    });
+  }
 
   if (process.platform === 'darwin') {
     template = [
@@ -293,22 +311,7 @@ app.on('ready', async() => {
           {
             label: 'Learn More',
             click() {
-              shell.openExternal('http://electron.atom.io');
-            }
-          }, {
-            label: 'Documentation',
-            click() {
-              shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme');
-            }
-          }, {
-            label: 'Community Discussions',
-            click() {
-              shell.openExternal('https://discuss.atom.io/c/electron');
-            }
-          }, {
-            label: 'Search Issues',
-            click() {
-              shell.openExternal('https://github.com/atom/electron/issues');
+              shell.openExternal('https://ejabu.github.io/quran-based-electron.html');
             }
           }
         ]

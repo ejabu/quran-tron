@@ -30,7 +30,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: '320px',
+      width: '220px',
       query: '',
     };
   }
@@ -109,7 +109,7 @@ export default class Home extends Component {
 
           <Resizable
           customClass="submenu"
-          width={320}
+          width={220}
           height={"100%"}
           minWidth={160}
           minHeight={160}
