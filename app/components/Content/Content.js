@@ -9,7 +9,7 @@ var remote = require('electron').remote;
 var fs = require('fs');
 var Datastore = require('nedb');
 // var db = new Datastore();
-var quranDB = new Datastore({ filename: 'G:/quran.db', autoload: false, onload:function(error) {console.log('haha');} });
+var quranDB = new Datastore({ filename: 'D:/quran.db', autoload: false, onload:function(error) {console.log('haha');} });
 import { QueryParser } from './SearchEngine';
 
 @connect(state => ({ verseIndex: state.verseIndex }),)
@@ -53,8 +53,7 @@ export default class Content extends Component {
     if (err) return console.log(err);
     if (data===undefined) return console.log('undefined');
     const { dispatch } = this.props;
-    console.log(data[0]);
-    updateVerseIndex(dispatch, data[0]['i'])
+    // updateVerseIndex(dispatch, data[0])
     this.setState({
       arabic: data[0]['a'],
       index:  data[0]['i'],
