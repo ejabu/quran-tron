@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './Content.css';
+import { updateVerseIndex } from '../../actions/verseIndex';
+
 var remote = require('electron').remote;
 var fs = require('fs');
 var Datastore = require('nedb');
@@ -50,8 +52,9 @@ export default class Content extends Component {
   doSomething = (err, data) => {
     if (err) return console.log(err);
     if (data===undefined) return console.log('undefined');
-    console.log('data');
-    console.log(data);
+    const { dispatch } = this.props;
+    console.log(data[0]);
+    updateVerseIndex(dispatch, data[0]['i'])
     this.setState({
       arabic: data[0]['a'],
       index:  data[0]['i'],
@@ -69,6 +72,9 @@ export default class Content extends Component {
   // }
 
   render() {
+    const { verseIndex } = this.props;
+    console.log('verseIndex RENDERING');
+    console.log(verseIndex);
     const items = this.props.translations;
     const choosenIndex = this.state.index;
     return (
