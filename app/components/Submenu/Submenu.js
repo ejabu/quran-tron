@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 import styles from './Submenu.css';
 import SearchBox from './SearchBox/SearchBox';
 
-
 @connect(state => ({ verseIndex: state.verseIndex , result: state.result}),)
 export default class Submenu extends Component {
   constructor(props) {
@@ -20,28 +19,21 @@ export default class Submenu extends Component {
   }
 
   renderResult(item, index) {
-    console.log('RENDER RESULT', index);
-    console.log(item);
     return (
       <div className={styles.item} key={index}>
         <div >{item.c} : {item.v}</div>
-        <div >{item.b}</div>
       </div>
     );
   }
 
   render() {
     const items = this.state.result;
-    // const items = this.props.suggestions;
     const { verseIndex, result } = this.props;
-    console.log('result FROM SUBMENu');
-    console.log(result);
-    // let tes = verseIndex.b.toString()
     return (
       <div className={styles.mainWrapper}>
         <div>
           <SearchBox {...this.props} />
-          <grey>Search of </grey>
+          <grey>Search Result {result.length}</grey>
         </div>
         <div className={styles.itemBox}>
           {result.map((item, index) => (this.renderResult(item, index)))}

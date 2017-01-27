@@ -7,7 +7,7 @@ function findByIndex(query) {
 }
 function findByKeyword(query) {
   // var regexBahasa = new RegExp(query, "g")
-  var regexBahasa = new RegExp(" "+query+" ", "g")
+  var regexBahasa = new RegExp(" "+query+" ", "i")
   return {b: regexBahasa}
   // var regexVerse = new RegExp(splitter[1], "g")
   // return {c: regexChapter, v: regexVerse}
@@ -24,7 +24,6 @@ function update(verseIndex) {
 
 
 export function QueryParser(query) {
-  console.log('Query to parse : ' + query);
   var neQuery = {c: 115, v: 1};
   if (query.indexOf(':') > -1) {
     neQuery = findByIndex(query)

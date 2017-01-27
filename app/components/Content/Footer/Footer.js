@@ -29,7 +29,6 @@ export default class Footer extends Component {
     const items = this.props.translations;
     // const items = this.props.suggestions;
     const choosenIndex = this.state.index;
-    console.log(this.props);
     return (
       <div className={styles.transWrapper}>
         <div>

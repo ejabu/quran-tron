@@ -39,10 +39,7 @@ export default class SearchBox extends Component {
           this.props.searchCallback(event.target.value)
         }
         else{
-          console.log('bukan :');
-          // QueryParser(dispatch, event.target.value)
           var neQuery = QueryParser(event.target.value)
-          console.log(neQuery);
           quranDB.find(neQuery, this.doSomething);
         }
       }
@@ -52,9 +49,6 @@ export default class SearchBox extends Component {
   doSomething = (err, data) => {
     if (err) return console.log(err);
     if (data===undefined) return console.log('undefined');
-    console.log('doSomethingSearchBox');
-    console.log(this);
-    console.log(data);
     const { dispatch } = this.props;
     resultChanged(dispatch,data)
   }

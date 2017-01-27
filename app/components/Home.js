@@ -37,9 +37,6 @@ export default class Home extends Component {
 
   searchCallback = (query) => {
     var toSet2 = { query:  query }
-    console.log(this);
-    console.log('toSet2');
-    console.log(toSet2);
     this.setState(toSet2);
   }
 

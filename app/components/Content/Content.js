@@ -52,8 +52,6 @@ export default class Content extends Component {
     if (err) return console.log(err);
     if (data===undefined) return console.log('undefined');
     const { dispatch } = this.props;
-    console.log(data);
-    // updateVerseIndex(dispatch, data[0])
     this.setState({
       arabic: data[0]['a'],
       index:  data[0]['i'],
@@ -72,8 +70,6 @@ export default class Content extends Component {
 
   render() {
     const { verseIndex } = this.props;
-    console.log('verseIndex RENDERING');
-    console.log(verseIndex);
     const items = this.props.translations;
     const choosenIndex = this.state.index;
     return (

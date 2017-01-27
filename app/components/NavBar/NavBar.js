@@ -42,8 +42,6 @@ export default class NavBar extends Component {
   }
   addPost5 = (event) => {
     event.stopPropagation();
-    console.log(remote)
-    console.log(fs)
     var filepath = "G:/eja.txt"
     var content;
     fs.readFile(filepath, 'utf8', this.doSomething)
@@ -61,7 +59,6 @@ export default class NavBar extends Component {
 
 
     db.insert(scott, function(err, doc) {
-        console.log('Inserted', doc.name, 'with ID', doc._id);
     });
 
     // console.log(fs)
@@ -73,7 +70,6 @@ export default class NavBar extends Component {
   }
   addPost7 = (event) => {
     event.stopPropagation();
-    console.log(remote)
 
     db.find({ name: 'Scott' }, function (err, docs) {
         console.log(docs);
