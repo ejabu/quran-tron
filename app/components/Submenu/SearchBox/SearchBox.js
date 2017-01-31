@@ -51,7 +51,6 @@ export default class SearchBox extends Component {
   }
 
   handleKeyDown = (event) => {
-    const { dispatch } = this.props;
     if (event.key === 'Enter') {
       if (event.target.value !== '') {
         if (event.target.value.indexOf(':') > -1) {
@@ -75,11 +74,15 @@ export default class SearchBox extends Component {
   try = (event) => {
     event.stopPropagation();
     console.log('try');
-    console.log(this);
-    console.log(app);
-    console.log(app.getPath('appData'));
-    console.log(app.getPath('desktop'));
-    console.log(app.getPath('home'));
+
+
+    if (this.state.search.indexOf(':') > -1) {
+      this.props.searchCallback(this.state.search)
+    }
+    else{
+      var neQuery = QueryParser(this.state.search)
+      quranDB.find(neQuery, this.doSomething);
+    }
   }
   render() {
     const items = this.props.suggestions;
