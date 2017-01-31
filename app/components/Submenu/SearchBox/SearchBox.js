@@ -53,7 +53,7 @@ export default class SearchBox extends Component {
         }
         else{
           var neQuery = QueryParser(event.target.value)
-          quranDB.find(neQuery, this.doSomething);
+          quranDB.find(neQuery).sort({c:1,v:1}).exec(this.doSomething)
         }
       }
     }
@@ -73,7 +73,8 @@ export default class SearchBox extends Component {
     }
     else{
       var neQuery = QueryParser(this.state.search)
-      quranDB.find(neQuery, this.doSomething);
+      quranDB.find(neQuery).sort({c:1,v:1}).exec(this.doSomething)
+
     }
   }
   render() {
