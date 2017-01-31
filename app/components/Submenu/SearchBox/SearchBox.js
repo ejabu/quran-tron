@@ -9,11 +9,30 @@ import { QueryParser } from './SearchEngine';
 var remote = require('electron').remote;
 var fs = require('fs');
 var Datastore = require('nedb');
-var quranDB = new Datastore({ filename: 'D:/quranSearchNew.db', autoload: false, onload:function(error) {console.log('haha');} });
+var app = electron.remote.app
+
+if (process.env.NODE_ENV === 'development') {
+  var exePath = app.getPath('exe')
+  var path     = require('path');
+  var hasil = path.join(exePath, "../assets/quran.db")
+  console.log('development');
+  console.log(hasil);
+  var quranDB = new Datastore({ filename: 'D:/quranSearch.db', autoload: false, onload:function(error) {console.log('haha');} });
+
+} else {
+  var exePath = app.getPath('exe')
+  var path     = require('path');
+  var hasil = path.join(exePath, "../assets/quranSearch.db")
+  console.log('production');
+  console.log(hasil);
+  var quranDB = new Datastore({ filename: hasil, autoload: false, onload:function(error) {console.log('haha');} });
+
+}
 
 @connect(state => ({ verseIndex: state.verseIndex , result: state.result}),)
 export default class SearchBox extends Component {
   constructor(props) {
+    console.log(app);
     super(props);
     this.state = {
       search: '',
@@ -52,13 +71,23 @@ export default class SearchBox extends Component {
     const { dispatch } = this.props;
     resultChanged(dispatch,data)
   }
+
+  try = (event) => {
+    event.stopPropagation();
+    console.log('try');
+    console.log(this);
+    console.log(app);
+    console.log(app.getPath('appData'));
+    console.log(app.getPath('desktop'));
+    console.log(app.getPath('home'));
+  }
   render() {
     const items = this.props.suggestions;
     const choosenIndex = this.state.index;
     return (
       <div className={styles.wrapper}>
         <div className={styles.box}>
-          <div className={styles.box9 + " searchBox"}>
+          <div className={styles.box9 + " searchBox"} onClick={this.try.bind(this)}>
             <a className="searchBox"></a>
           </div>
           <div className={styles.box10}>

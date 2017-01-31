@@ -54,6 +54,9 @@
       "main.js.map",
       "package.json"
     ],
+    "extraFiles": [
+      "assets/"
+    ],
     "win": {
       "target": "nsis"
     },

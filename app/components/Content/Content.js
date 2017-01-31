@@ -9,7 +9,25 @@ import { QueryParser } from './SearchEngine';
 var remote = require('electron').remote;
 var fs = require('fs');
 var Datastore = require('nedb');
-var quranDB = new Datastore({ filename: 'D:/quran.db', autoload: false, onload:function(error) {console.log('haha');} });
+var app = electron.remote.app
+
+if (process.env.NODE_ENV === 'development') {
+  var exePath = app.getPath('exe')
+  var path     = require('path');
+  var hasil = path.join(exePath, "../assets/quran.db")
+  console.log('development');
+  console.log(hasil);
+  var quranDB = new Datastore({ filename: 'D:/quran.db', autoload: false, onload:function(error) {console.log('haha');} });
+
+} else {
+  var exePath = app.getPath('exe')
+  var path     = require('path');
+  var hasil = path.join(exePath, "../assets/quran.db")
+  console.log('production');
+  console.log(hasil);
+  var quranDB = new Datastore({ filename: hasil, autoload: false, onload:function(error) {console.log('haha');} });
+
+}
 
 @connect(state => ({ verseIndex: state.verseIndex }),)
 export default class Content extends Component {
