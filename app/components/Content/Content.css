@@ -7,7 +7,6 @@
 
 .content {
   padding: 5px 15px;
-
 }
 
 .arabic {
@@ -17,6 +16,7 @@
   margin-bottom: 14px;
   font-family: "Uthmanic";
 }
+
 .bahasa {
   font-size: 22px;
   line-height: 36px;
@@ -26,9 +26,30 @@
   font-size: 34px;
   line-height: 46px;
   text-align: center;
-  margin-top: 24px;
   margin-bottom: 34px;
+  color: #49A3DE;
+  margin-top: 24px;
+  /*padding: 5px;
+  color: #366185;
+  background: #eff5f5;*/
 }
+
+.itemLabel {
+  display: inline-block;
+  padding: 0px 10px 0px 15px;
+  font-family: "Lato";
+  font-size: 24px;
+  color: #2383C2
+}
+
+.item {
+  display: inline-block;
+  padding: 15px 5px 15px 5px;
+  font-family: "DroidSerif";
+  font-size: 34px;
+}
+
+
 /*
 .transWrapper:media( min-width: 550px ) .content {
 	color: red;

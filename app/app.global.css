@@ -10,6 +10,10 @@
   font-family: 'Entypo';
   src: url("../fonts/Icon/Entypo.ttf") format("truetype");
 }
+@font-face {
+  font-family: 'DroidSerif';
+  src: url("../fonts/DroidSerif-Regular.ttf") format("truetype");
+}
 
 @font-face {
   font-family: 'Eja2';

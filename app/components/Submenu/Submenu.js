@@ -20,8 +20,10 @@ export default class Submenu extends Component {
 
   renderResult(item, index) {
     return (
-      <div className={styles.item} key={index}>
-        <div >{item.c} : {item.v}</div>
+      <div className={styles.items} key={index}>
+        <div className={styles.itemLabel} >QS</div>
+
+        <div className={styles.item} >{item.c} : {item.v}</div>
       </div>
     );
   }

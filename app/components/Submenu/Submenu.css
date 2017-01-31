@@ -1,8 +1,38 @@
-.mainWrapper{
+.mainWrapper {}
 
-}
-.itemBox{
+.itemBox {
+  margin: 10px 0;
   height: calc(100vh - 100px);
   overflow-y: auto;
+}
 
+.items {
+  border-bottom: 1px solid #EDEEF0;
+}
+
+.items:hover {
+  background-color: #EFF5F5;
+  cursor: pointer;
+}
+
+.items:hover .item {
+  color: #366185;
+}
+
+.items:hover .itemLabel {
+  color: #8EC3CC;
+}
+
+.itemLabel {
+  display: inline-block;
+  padding: 0px 0px 0px 15px;
+  font-family: "Lato";
+  font-size: 8px;
+}
+
+.item {
+  display: inline-block;
+  padding: 15px 5px 15px 5px;
+  font-family: "DroidSerif";
+  font-size: 15px;
 }

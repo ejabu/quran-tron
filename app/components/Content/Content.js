@@ -91,26 +91,30 @@ export default class Content extends Component {
     const items = this.props.translations;
     const choosenIndex = this.state.index;
     return (
-      <div className={styles.transWrapper}>
-
+      <div>
         <div className={styles.header}>
-        {this.state.chapter}:{this.state.verse}
+          <div className={styles.itemLabel} >QS</div>
+
+          <div className={styles.item} >{this.state.chapter}:{this.state.verse}</div>
+        </div>
+        <div className={styles.transWrapper}>
+
+
+          <div className={styles.content}>
+            <div className={styles.arabic}>
+              {this.state.arabic}
+            </div>
+            <div className={styles.bahasa}>
+              {this.state.bahasa}
+            </div>
+          </div>
+          <div>
+            <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
+            <a onMouseDown={this.nextIndex.bind(this)} className="navigation float-right " ></a>
+            {/* <a onMouseDown={this.tesSearch.bind(this)} className="navigation float-right " ></a> */}
+          </div>
 
         </div>
-        <div className={styles.content}>
-          <div className={styles.arabic}>
-            {this.state.arabic}
-          </div>
-          <div className={styles.bahasa}>
-            {this.state.bahasa}
-          </div>
-        </div>
-        <div>
-          <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
-          <a onMouseDown={this.nextIndex.bind(this)} className="navigation float-right " ></a>
-          {/* <a onMouseDown={this.tesSearch.bind(this)} className="navigation float-right " ></a> */}
-        </div>
-
       </div>
     );
   }
