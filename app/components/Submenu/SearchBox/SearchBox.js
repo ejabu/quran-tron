@@ -71,11 +71,8 @@ export default class SearchBox extends Component {
     resultChanged(dispatch,data)
   }
 
-  try = (event) => {
+  buttonSearchClick = (event) => {
     event.stopPropagation();
-    console.log('try');
-
-
     if (this.state.search.indexOf(':') > -1) {
       this.props.searchCallback(this.state.search)
     }
@@ -90,7 +87,7 @@ export default class SearchBox extends Component {
     return (
       <div className={styles.wrapper}>
         <div className={styles.box}>
-          <div className={styles.box9 + " searchBox"} onClick={this.try.bind(this)}>
+          <div className={styles.box9 + " searchBox"} onClick={this.buttonSearchClick.bind(this)}>
             <a className="searchBox"></a>
           </div>
           <div className={styles.box10}>
