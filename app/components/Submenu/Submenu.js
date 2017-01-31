@@ -18,9 +18,14 @@ export default class Submenu extends Component {
     };
   }
 
+  buttonResultClick = (par1, par2, event) => {
+    event.stopPropagation();
+    this.props.searchCallback(`${par1}:${par2}`)
+  }
+
   renderResult(item, index) {
     return (
-      <div className={styles.items} key={index}>
+      <div className={styles.items} key={index} onClick={this.buttonResultClick.bind(this,item.c,item.v)}>
         <div className={styles.itemLabel} >QS</div>
 
         <div className={styles.item} >{item.c} : {item.v}</div>

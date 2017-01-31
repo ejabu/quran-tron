@@ -14,17 +14,13 @@ var app = electron.remote.app
 if (process.env.NODE_ENV === 'development') {
   var exePath = app.getPath('exe')
   var path     = require('path');
-  var hasil = path.join(exePath, "../assets/quran.db")
-  console.log('development');
-  console.log(hasil);
+  var hasil = path.join(exePath, "../assets/quranSearch.db")
   var quranDB = new Datastore({ filename: 'D:/quranSearch.db', autoload: false, onload:function(error) {console.log('haha');} });
 
 } else {
   var exePath = app.getPath('exe')
   var path     = require('path');
   var hasil = path.join(exePath, "../assets/quranSearch.db")
-  console.log('production');
-  console.log(hasil);
   var quranDB = new Datastore({ filename: hasil, autoload: false, onload:function(error) {console.log('haha');} });
 
 }
@@ -32,7 +28,6 @@ if (process.env.NODE_ENV === 'development') {
 @connect(state => ({ verseIndex: state.verseIndex , result: state.result}),)
 export default class SearchBox extends Component {
   constructor(props) {
-    console.log(app);
     super(props);
     this.state = {
       search: '',
