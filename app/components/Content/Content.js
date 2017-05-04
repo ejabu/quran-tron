@@ -86,6 +86,19 @@ export default class Content extends Component {
   //   quranDB.find({ c: "78" , v: "2" }, this.doSomething);
   // }
 
+
+  // componentDidMount() {
+  //   const height = document.getElementById('haha').clientHeight;
+  //   console.log(height);
+  //   // this.setState({ height });
+  // }
+
+
+  calcHeight(node) {
+          if (node) {
+            console.log(node.offsetHeight);
+          }
+      }
   render() {
     const { verseIndex } = this.props;
     const items = this.props.translations;
@@ -93,20 +106,21 @@ export default class Content extends Component {
     return (
       <div>
 
-          <div className={styles.buttonLeft}>
-              <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
-          </div>
-          <div className={styles.buttonRight}>
-              <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-right " ></a>
-          </div>
+
         <div className={styles.header}>
           <div className={styles.itemLabel} >QS</div>
 
           <div className={styles.item} >{this.state.chapter}:{this.state.verse}</div>
         </div>
 
+        <div className={styles.buttonLeft}>
+            <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
+        </div>
+        <div className={styles.buttonRight}>
+            <a onMouseDown={this.nextIndex.bind(this)} className="navigation float-right " ></a>
+        </div>
 
-        <div className={styles.transWrapper}>
+        <div ref={(node) => this.calcHeight(node)} className={styles.transWrapper}>
 
 
           <div className={styles.content}>
@@ -120,8 +134,8 @@ export default class Content extends Component {
           {/* <div>
             <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
             <a onMouseDown={this.nextIndex.bind(this)} className="navigation float-right " ></a> */}
-            {/* <a onMouseDown={this.tesSearch.bind(this)} className="navigation float-right " ></a> */}
-          {/* </div> */}
+            {/* <a onMouseDown={this.tesSearch.bind(this)} className="navigation float-right " ></a>
+          </div>*/}
 
         </div>
       </div>
