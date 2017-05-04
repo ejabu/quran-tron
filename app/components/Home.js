@@ -48,10 +48,12 @@ export default class Home extends Component {
     var mainPosition = "absolute";
     var mainLeft = this.state.width
     var mainWidth = "initial"
+    var mainHeight = "initial"
     if (layout.submenu == "hide") {
       mainPosition = "relative"
       mainLeft = "0px";
       mainWidth="100%"
+      mainHeight="100%"
     }
     var submenuStyle = {
       // background: "#eee",
@@ -74,6 +76,7 @@ export default class Home extends Component {
       display: "inline-block",
       position: mainPosition,
       width: mainWidth,
+      height: mainHeight,
       top:"0px",
       left:mainLeft,
       right:"0px",

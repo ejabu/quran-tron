@@ -39,6 +39,9 @@
 
 
 .buttonMenu{
-  left: 25px;
-  top: 45px;
+  cursor: pointer;
+}
+
+.buttonMenu:hover{
+  font-weight: bold;
 }

@@ -101,11 +101,11 @@ export default class Content extends Component {
   // }
 
 
-  calcHeight(node) {
-          if (node) {
-            console.log(node.offsetHeight);
-          }
-      }
+  // calcHeight(node) {
+  //         if (node) {
+  //           console.log(node.offsetHeight);
+  //         }
+  //     }
 
 
   render() {
@@ -132,7 +132,8 @@ export default class Content extends Component {
             <a onMouseDown={this.nextIndex.bind(this)} className="navigation float-right " ></a>
         </div>
 
-        <div ref={(node) => this.calcHeight(node)} className={styles.transWrapper}>
+        {/* <div ref={(node) => this.calcHeight(node)} className={styles.transWrapper}> */}
+        <div className={styles.transWrapper}>
 
 
           <div className={styles.content}>
