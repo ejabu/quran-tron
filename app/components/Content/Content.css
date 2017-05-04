@@ -49,6 +49,20 @@
   font-size: 34px;
 }
 
+.buttonLeft{
+  position: fixed;
+  bottom: 15px;
+  width: 100px;
+  /* right: 0px; */
+  top: 110px;
+}
+.buttonRight{
+  position: fixed;
+  bottom: 15px;
+  width: 100px;
+  right: 0px;
+  top: 110px;
+}
 
 /*
 .transWrapper:media( min-width: 550px ) .content {

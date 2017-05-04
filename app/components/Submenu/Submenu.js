@@ -39,6 +39,9 @@ export default class Submenu extends Component {
     return (
       <div className={styles.mainWrapper}>
         <div>
+          Back
+        </div>
+        <div>
           <SearchBox {...this.props} />
           <grey>Search Result {result.length}</grey>
         </div>

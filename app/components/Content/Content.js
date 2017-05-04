@@ -92,11 +92,20 @@ export default class Content extends Component {
     const choosenIndex = this.state.index;
     return (
       <div>
+
+          <div className={styles.buttonLeft}>
+              <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
+          </div>
+          <div className={styles.buttonRight}>
+              <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-right " ></a>
+          </div>
         <div className={styles.header}>
           <div className={styles.itemLabel} >QS</div>
 
           <div className={styles.item} >{this.state.chapter}:{this.state.verse}</div>
         </div>
+
+
         <div className={styles.transWrapper}>
 
 
@@ -108,11 +117,11 @@ export default class Content extends Component {
               {this.state.bahasa}
             </div>
           </div>
-          <div>
+          {/* <div>
             <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
-            <a onMouseDown={this.nextIndex.bind(this)} className="navigation float-right " ></a>
+            <a onMouseDown={this.nextIndex.bind(this)} className="navigation float-right " ></a> */}
             {/* <a onMouseDown={this.tesSearch.bind(this)} className="navigation float-right " ></a> */}
-          </div>
+          {/* </div> */}
 
         </div>
       </div>
