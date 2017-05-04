@@ -4,20 +4,25 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './Submenu.css';
 import SearchBox from './SearchBox/SearchBox';
+import { hideMenu } from '../../actions/layout';
 
 @connect(state => ({ verseIndex: state.verseIndex , result: state.result}),)
 export default class Submenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      expanded: false,
+      menuHide: false,
       search: '',
       search2: '',
       index: 0,
       result:[],
     };
   }
-
+  hideMenu = (event) => {
+    const { dispatch } = this.props;
+    event.stopPropagation();
+    dispatch(hideMenu());
+  }
   buttonResultClick = (par1, par2, event) => {
     event.stopPropagation();
     this.props.searchCallback(`${par1}:${par2}`)
@@ -38,8 +43,9 @@ export default class Submenu extends Component {
     const { verseIndex, result } = this.props;
     return (
       <div className={styles.mainWrapper}>
-        <div>
-          Back
+        <div className={styles.buttonMenu} onMouseDown={this.hideMenu.bind(this)}>
+          Hide
+          <a className="float-left " ></a>
         </div>
         <div>
           <SearchBox {...this.props} />

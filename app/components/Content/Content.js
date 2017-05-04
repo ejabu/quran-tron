@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import styles from './Content.css';
 import { updateVerseIndex } from '../../actions/verseIndex';
 import { QueryParser } from './SearchEngine';
+import { showMenu } from '../../actions/layout';
 
 var remote = require('electron').remote;
 var fs = require('fs');
@@ -29,7 +30,7 @@ if (process.env.NODE_ENV === 'development') {
 
 }
 
-@connect(state => ({ verseIndex: state.verseIndex }),)
+@connect(state => ({ verseIndex: state.verseIndex, layout: state.layout}),)
 export default class Content extends Component {
 
   constructor(props) {
@@ -79,6 +80,12 @@ export default class Content extends Component {
     });
   }
 
+  showMenu = (event) => {
+    const { dispatch } = this.props;
+    event.stopPropagation();
+    dispatch(showMenu());
+  }
+
   loadContent = () => {
     quranDB.find({ c: "20" , v: "2" }, this.doSomething);
   }
@@ -99,8 +106,10 @@ export default class Content extends Component {
             console.log(node.offsetHeight);
           }
       }
+
+
   render() {
-    const { verseIndex } = this.props;
+    const { verseIndex, layout } = this.props;
     const items = this.props.translations;
     const choosenIndex = this.state.index;
     return (
@@ -108,7 +117,10 @@ export default class Content extends Component {
 
 
         <div className={styles.header}>
-          <div className={styles.itemLabel} >QS</div>
+          {(layout.submenu == "hide") && <div className={styles.buttonMenu}>
+            <a onMouseDown={this.showMenu.bind(this)} className="float-right "></a>
+          </div>}
+          <div className={styles.itemLabel}>QS</div>
 
           <div className={styles.item} >{this.state.chapter}:{this.state.verse}</div>
         </div>

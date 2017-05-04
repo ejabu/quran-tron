@@ -64,6 +64,12 @@
   top: 110px;
 }
 
+.buttonMenu{
+  position: absolute;
+  left: 25px;
+  top: 45px;
+}
+
 /*
 .transWrapper:media( min-width: 550px ) .content {
 	color: red;

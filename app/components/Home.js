@@ -18,6 +18,7 @@ import Content from './Content/Content';
     suggestions: state.suggestions,
     translations: state.translations,
     posts: state.posts,
+    layout: state.layout,
     result: state.result }),
   )
 export default class Home extends Component {
@@ -30,6 +31,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      menuHide: false,
       width: '220px',
       query: '',
     };
@@ -42,6 +44,15 @@ export default class Home extends Component {
 
 
   render() {
+    const { layout } = this.props;
+    var mainPosition = "absolute";
+    var mainLeft = this.state.width
+    var mainWidth = "initial"
+    if (layout.submenu == "hide") {
+      mainPosition = "relative"
+      mainLeft = "0px";
+      mainWidth="100%"
+    }
     var submenuStyle = {
       // background: "#eee",
       display: "inline-block",
@@ -61,9 +72,10 @@ export default class Home extends Component {
       background: "#fff",
       // border: "3px solid black",
       display: "inline-block",
-      position: "absolute",
+      position: mainPosition,
+      width: mainWidth,
       top:"0px",
-      left:this.state.width,
+      left:mainLeft,
       right:"0px",
       bottom:"0px",
       zIndex:"5",
@@ -93,7 +105,7 @@ export default class Home extends Component {
     return (
       <div className={styles.container}>
 
-          <Resizable
+          {(layout.submenu !== "hide") && <Resizable
           customClass="submenu"
           width={220}
           height={"100%"}
@@ -109,7 +121,7 @@ export default class Home extends Component {
             <div style={submenuStyle}>
               <Submenu searchCallback={this.searchCallback}/>
             </div>
-          </Resizable>
+          </Resizable>}
           <div style={mainContentStyle}>
             <Content query={this.state.query}/>
           </div>
