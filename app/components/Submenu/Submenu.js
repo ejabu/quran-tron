@@ -33,6 +33,9 @@ export default class Submenu extends Component {
       'height':560
     }
     win.setBounds(nextBound);
+    const { dispatch } = this.props;
+    event.stopPropagation();
+    dispatch(hideMenu());
   }
   bigMenu = (event) => {
     var win = remote.getCurrentWindow();
