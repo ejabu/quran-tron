@@ -230,7 +230,7 @@ app.on('ready', async() => {
         label: 'Help',
         submenu: [
           {
-            label: 'Learn More',
+            label: 'About',
             click() {
               shell.openExternal('http://electron.atom.io');
             }
@@ -309,9 +309,9 @@ app.on('ready', async() => {
         label: 'Help',
         submenu: [
           {
-            label: 'Learn More',
+            label: 'About',
             click() {
-              shell.openExternal('https://ejabu.github.io/quran-based-electron.html');
+              shell.openExternal('https://ejabu.github.io/quran-tron.html');
             }
           }
         ]
