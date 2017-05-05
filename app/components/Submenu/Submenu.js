@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import styles from './Submenu.css';
 import SearchBox from './SearchBox/SearchBox';
 import { hideMenu } from '../../actions/layout';
+import {remote} from 'electron';
 
 @connect(state => ({ verseIndex: state.verseIndex , result: state.result}),)
 export default class Submenu extends Component {
@@ -23,6 +24,30 @@ export default class Submenu extends Component {
     event.stopPropagation();
     dispatch(hideMenu());
   }
+  smallMenu = (event) => {
+    var win = remote.getCurrentWindow();
+    var nextBound = {
+      'x':96,
+      'y':61,
+      'width':540,
+      'height':560
+    }
+    win.setBounds(nextBound);
+  }
+  bigMenu = (event) => {
+    var win = remote.getCurrentWindow();
+    var nextBound = {
+      'x':96,
+      'y':61,
+      'width':1074,
+      'height':603
+    }
+    win.setBounds(nextBound);
+  }
+  // fullMenu = (event) => {
+  //   var win = remote.getCurrentWindow();
+  //   win.setFullScreen(true)
+  // }
   buttonResultClick = (par1, par2, event) => {
     event.stopPropagation();
     this.props.searchCallback(`${par1}:${par2}`)
@@ -45,8 +70,22 @@ export default class Submenu extends Component {
       <div className={styles.mainWrapper}>
         <div className={styles.buttonMenu} onMouseDown={this.hideMenu.bind(this)}>
           Hide
-          <a className="float-left " ></a>
+          <a className="arrowLeft" ></a>
         </div>
+        <div className="uk-float-right">
+        <div className={styles.buttonMenu} onMouseDown={this.smallMenu.bind(this)}>
+
+          <a className="smaller " ></a>
+        </div>
+        <div className={styles.buttonMenu} onMouseDown={this.bigMenu.bind(this)}>
+
+          <a className="larger " ></a>
+        </div>
+        </div>
+        {/* <div className={styles.buttonMenu} onMouseDown={this.fullMenu.bind(this)}>
+          Full
+          <a className="arrowLeft " ></a>
+        </div> */}
         <div>
           <SearchBox {...this.props} />
           <grey>Search Result {result.length}</grey>

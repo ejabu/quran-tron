@@ -71,13 +71,16 @@ export default class Content extends Component {
     if (err) return console.log(err);
     if (data===undefined) return console.log('undefined');
     const { dispatch } = this.props;
-    this.setState({
-      arabic: data[0]['a'],
-      index:  data[0]['i'],
-      bahasa:  data[0]['b'],
-      chapter:  data[0]['c'],
-      verse:  data[0]['v'],
-    });
+    if (data.length > 0){
+      this.setState({
+        arabic: data[0]['a'],
+        index:  data[0]['i'],
+        bahasa:  data[0]['b'],
+        chapter:  data[0]['c'],
+        verse:  data[0]['v'],
+      });
+    }
+
   }
 
   showMenu = (event) => {
@@ -118,7 +121,8 @@ export default class Content extends Component {
 
         <div className={styles.header}>
           {(layout.submenu == "hide") && <div className={styles.buttonMenu}>
-            <a onMouseDown={this.showMenu.bind(this)} className="float-right "></a>
+            <a onMouseDown={this.showMenu.bind(this)} className="navicon"></a>
+            {/* <a onMouseDown={this.showMenu.bind(this)} className="arrowRight "></a> */}
           </div>}
           <div className={styles.itemLabel+" noselect cursorSelect"}>QS</div>
 
@@ -126,10 +130,10 @@ export default class Content extends Component {
         </div>
 
         <div className={styles.buttonLeft}>
-            <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
+            <a onMouseDown={this.prevIndex.bind(this)} className="navigation arrowLeft " ></a>
         </div>
         <div className={styles.buttonRight}>
-            <a onMouseDown={this.nextIndex.bind(this)} className="navigation float-right " ></a>
+            <a onMouseDown={this.nextIndex.bind(this)} className="navigation arrowRight " ></a>
         </div>
 
         {/* <div ref={(node) => this.calcHeight(node)} className={styles.transWrapper}> */}
@@ -145,9 +149,9 @@ export default class Content extends Component {
             </div>
           </div>
           {/* <div>
-            <a onMouseDown={this.prevIndex.bind(this)} className="navigation float-left " ></a>
-            <a onMouseDown={this.nextIndex.bind(this)} className="navigation float-right " ></a> */}
-            {/* <a onMouseDown={this.tesSearch.bind(this)} className="navigation float-right " ></a>
+            <a onMouseDown={this.prevIndex.bind(this)} className="navigation arrowLeft " ></a>
+            <a onMouseDown={this.nextIndex.bind(this)} className="navigation arrowRight " ></a> */}
+            {/* <a onMouseDown={this.tesSearch.bind(this)} className="navigation arrowRight " ></a>
           </div>*/}
 
         </div>

@@ -31,6 +31,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Entypo';
+  src: url("../fonts/Icon/Entypo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
   font-family: 'Roboto-Regular';
@@ -243,17 +249,26 @@ a:hover {
   border-bottom: 1px solid #313030;
 }
 
-.float-left {
-  left: 0px;
-}
 
-a.float-right:before {
+a.arrowRight:before {
   content: "\f10d";
   font-family: "EvilIcons";
 }
-a.float-left:before {
+a.arrowLeft:before {
   content: "\f10c";
   font-family: "EvilIcons";
+}
+a.navicon:before {
+  content: "\f120";
+  font-family: "EvilIcons";
+}
+a.smaller:before {
+  content: "\f232";
+  font-family: "Entypo";
+}
+a.larger:before {
+  content: "\f233";
+  font-family: "Entypo";
 }
 
 a.searchBox:before {
@@ -263,9 +278,7 @@ a.searchBox:before {
   color: #fff;
 }
 
-.float-right {
-  right: 0px;
-}
+
 
 .navigation {
   position: absolute;
