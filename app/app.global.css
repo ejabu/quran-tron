@@ -273,7 +273,7 @@ a.searchBox:before {
   bottom: 0;
   margin: 0;
   max-width: 150px;
-  min-width: 90px;
+  min-width: 70px;
   display: none;
   justify-content: center;
   align-content: center;
@@ -285,4 +285,19 @@ a.searchBox:before {
   -moz-transition: all 350ms ease;
   -o-transition: all 350ms ease;
   transition: all 350ms ease;
+}
+
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.cursorSelect{
+  cursor: default;
 }

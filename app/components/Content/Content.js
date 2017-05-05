@@ -120,9 +120,9 @@ export default class Content extends Component {
           {(layout.submenu == "hide") && <div className={styles.buttonMenu}>
             <a onMouseDown={this.showMenu.bind(this)} className="float-right "></a>
           </div>}
-          <div className={styles.itemLabel}>QS</div>
+          <div className={styles.itemLabel+" noselect cursorSelect"}>QS</div>
 
-          <div className={styles.item} >{this.state.chapter}:{this.state.verse}</div>
+          <div className={styles.item+" noselect cursorSelect"} >{this.state.chapter}:{this.state.verse}</div>
         </div>
 
         <div className={styles.buttonLeft}>
