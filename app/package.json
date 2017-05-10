@@ -4,6 +4,7 @@
   "version": "1.2.0",
   "artifactName": "Quran Indonesia",
   "description": "Quran based on Electron",
+  "_description": "Description Will be show on Task Manager",
   "main": "./main.js",
   "author": {
     "name": "Muhammad Fahreza",

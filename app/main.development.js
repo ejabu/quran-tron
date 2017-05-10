@@ -8,6 +8,9 @@ let aboutWindow = null;
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support'); // eslint-disable-line
   sourceMapSupport.install();
+  const path = require('path'); // eslint-disable-line
+  const ejakeren = path.join(__dirname, '../assets/app2.html'); // eslint-disable-line
+
 }
 
 if (process.env.NODE_ENV === 'development') {
@@ -104,6 +107,11 @@ app.on('ready', async() => {
         }, {
           label: 'Paste',
           role: 'paste'
+        }, {
+          label: 'Inspect element',
+          click() {
+            mainWindow.inspectElement(x, y);
+          }
         }
       ]).popup(mainWindow);
     });
@@ -308,7 +316,8 @@ app.on('ready', async() => {
           ]
       }, {
         label: 'Help',
-        submenu: [
+        submenu: (process.env.NODE_ENV === 'development')
+          ? [
           {
             label: 'About',
             click() {
@@ -321,12 +330,47 @@ app.on('ready', async() => {
                                       width: 524,
                                       height: 238,
                                       title: 'About'});
-                aboutWindow.loadURL(`file://${__dirname}/about.html`);
-                aboutWindow.show();
-                // aboutWindow.setMenu(null);
+                // Folder assets dibelakang app
+                aboutWindow.loadURL(`file://${__dirname}/../assets/about.html`);
+
+                aboutWindow.webContents.on('did-finish-load', () => {
+                  aboutWindow.show();
+                  aboutWindow.focus();
+                });
 
                 aboutWindow.on('blur', function() {
-                  // aboutWindow.hide()
+                  aboutWindow.destroy()
+                  aboutWindow = null;
+                });
+              }
+
+            }
+          }
+        ] : [ //Ini kalau Production
+          {
+            label: 'About',
+            click() {
+              // shell.openExternal('https://ejabu.github.io/quran-tron.html');
+              if (aboutWindow == null){
+                aboutWindow = new BrowserWindow({
+                                      skipTaskbar: true,
+                                      frame: false,
+                                      toolbar: false,
+                                      width: 524,
+                                      height: 238,
+                                      title: 'About'});
+                // Karena ini akan ke load di Resources
+                // Folder assets dibelakang resource dan dibelakang asar.resources
+                aboutWindow.loadURL(`file://${__dirname}/../../assets/about.html`);
+
+                aboutWindow.webContents.on('did-finish-load', () => {
+                  aboutWindow.show();
+                  aboutWindow.focus();
+                });
+
+
+                aboutWindow.on('blur', function() {
+                  aboutWindow.destroy()
                   aboutWindow = null;
                 });
               }
