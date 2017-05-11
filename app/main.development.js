@@ -271,9 +271,9 @@ app.on('ready', async() => {
         label: '&File',
         submenu: [
           {
-            label: '&Open',
-            accelerator: 'Ctrl+O'
-          }, {
+          //   label: '&Open',
+          //   accelerator: 'Ctrl+O'
+          // }, {
             label: '&Close',
             accelerator: 'Ctrl+W',
             click() {
@@ -286,12 +286,12 @@ app.on('ready', async() => {
         submenu: (process.env.NODE_ENV === 'development')
           ? [
             {
-              label: '&Reload',
-              accelerator: 'Ctrl+R',
-              click() {
-                mainWindow.webContents.reload();
-              }
-            }, {
+            //   label: '&Reload',
+            //   accelerator: 'Ctrl+R',
+            //   click() {
+            //     mainWindow.webContents.reload();
+            //   }
+            // }, {
               label: 'Toggle &Full Screen',
               accelerator: 'F11',
               click() {

@@ -136,14 +136,22 @@ export default class Content extends Component {
             <a onMouseDown={this.nextIndex.bind(this)} className="navigation arrowRight " ></a>
         </div>
 
-        {/* <div ref={(node) => this.calcHeight(node)} className={styles.transWrapper}> */}
+        {/* untuk nambah baiikin height value <div ref={(node) => this.calcHeight(node)} className={styles.transWrapper}> */}
         <div className={styles.transWrapper}>
 
 
           <div className={styles.content}>
-            <div className={styles.arabic}>
-              {this.state.arabic}
-            </div>
+            { layout.font == "OLD_FONT" ?
+              <div className={styles.arabic}>
+                {this.state.bahasa}
+              </div>
+                :
+              <div className={styles.arabic}>
+                {this.state.arabic}
+              </div>
+
+            }
+
             <div className={styles.bahasa}>
               {this.state.bahasa}
             </div>
