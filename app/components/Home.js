@@ -8,7 +8,6 @@ import Resizable from 'react-resizable-box';
 import styles from './Home.css';
 // import NavBar from './NavBar/NavBar';
 import Submenu from './Submenu/Submenu';
-import Result from './Result/Result';
 import * as CounterActions from '../actions/counter';
 import Content from './Content/Content';
 
