@@ -12,12 +12,8 @@ import Content from './Content/Content';
 
 @connect(
   state => ({
-    counter: state.counter,
-    suggestions: state.suggestions,
-    translations: state.translations,
-    posts: state.posts,
     layout: state.layout,
-    result: state.result }),
+   }),
   )
 export default class Home extends Component {
   // KALAU INI GAK DI COMMENT, NAV BAR HARUS CONNECT LAGI. KALAU DI

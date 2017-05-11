@@ -1,14 +1,14 @@
 // @flow
 
-export default function layout(state = {}, action = {}) {
+export default function font(state = {}, action = {}) {
   switch (action.type) {
-    case "HIDE":
+    case "NEW_FONT":
       return Object.assign({}, state, {
-        submenu: "hide"
+        font: "NEW_FONT"
       })
-    case "SHOW":
+    case "OLD_FONT":
       return Object.assign({}, state, {
-        submenu: "show"
+        font: "OLD_FONT"
       })
     default:
       return state;

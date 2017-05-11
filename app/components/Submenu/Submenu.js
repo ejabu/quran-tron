@@ -5,10 +5,15 @@ import { Link } from 'react-router';
 import styles from './Submenu.css';
 import SearchBox from './SearchBox/SearchBox';
 import { hideMenu } from '../../actions/layout';
-import { toggleFont } from '../../actions/layout';
+import { toggleFont } from '../../actions/font';
 import {remote} from 'electron';
 
-@connect(state => ({ verseIndex: state.verseIndex , result: state.result, layout: state.layout}),)
+@connect(state => ({
+  verseIndex: state.verseIndex ,
+  result: state.result,
+  font: state.font,
+  layout: state.layout
+}),)
 export default class Submenu extends Component {
   constructor(props) {
     super(props);
@@ -26,9 +31,9 @@ export default class Submenu extends Component {
     dispatch(hideMenu());
   }
   toggleFont = (event) => {
-    const { layout, dispatch } = this.props;
+    const { font, dispatch } = this.props;
     event.stopPropagation();
-    dispatch(toggleFont(layout));
+    dispatch(toggleFont(font));
   }
   smallMenu = (event) => {
     var win = remote.getCurrentWindow();
@@ -74,7 +79,7 @@ export default class Submenu extends Component {
 
   render() {
     const items = this.state.result;
-    const { layout, verseIndex, result } = this.props;
+    const { layout, verseIndex, result, font } = this.props;
 
     return (
       <div className={styles.mainWrapper}>
@@ -84,7 +89,7 @@ export default class Submenu extends Component {
         </div>
         <div className="uk-float-right">
           <div className={styles.buttonMenu+" "+ styles.buttonFont} onMouseDown={this.toggleFont.bind(this)}>
-            { layout.font == "OLD_FONT" ?  <a className="" >Tradional Arabic</a> : <a className="" >Uthman Script</a> }
+            { font.font == "OLD_FONT" ?  <a className="" >Tradional Arabic</a> : <a className="" >Uthman Script</a> }
           </div>
           <div className={styles.buttonMenu} onMouseDown={this.smallMenu.bind(this)}>
 

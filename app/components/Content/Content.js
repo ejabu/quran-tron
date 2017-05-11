@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'development') {
 
 }
 
-@connect(state => ({ verseIndex: state.verseIndex, layout: state.layout}),)
+@connect(state => ({ verseIndex: state.verseIndex, layout: state.layout, font: state.font}),)
 export default class Content extends Component {
 
   constructor(props) {
@@ -70,7 +70,6 @@ export default class Content extends Component {
   doSomething = (err, data) => {
     if (err) return console.log(err);
     if (data===undefined) return console.log('undefined');
-    const { dispatch } = this.props;
     if (data.length > 0){
       this.setState({
         arabic: data[0]['a'],
@@ -113,7 +112,7 @@ export default class Content extends Component {
 
 
   render() {
-    const { verseIndex, layout } = this.props;
+    const { verseIndex, layout, font } = this.props;
     const items = this.props.translations;
     const choosenIndex = this.state.index;
     return (
@@ -142,7 +141,7 @@ export default class Content extends Component {
 
 
           <div className={styles.content}>
-            { layout.font == "OLD_FONT" ?
+            { font.font == "OLD_FONT" ?
               <div className={styles.traditional}>
                 {this.state.traditional}
               </div>
