@@ -16,21 +16,26 @@ if (process.env.NODE_ENV === 'development') {
   var exePath = app.getPath('exe')
   var path     = require('path');
   var hasil = path.join(exePath, "../assets/quran.db")
-  console.log('development');
-  console.log(hasil);
+  // console.log('development');
+  // console.log(hasil);
   var quranDB = new Datastore({ filename: 'D:/quran.db', autoload: false, onload:function(error) {console.log('haha');} });
 
 } else {
   var exePath = app.getPath('exe')
   var path     = require('path');
   var hasil = path.join(exePath, "../assets/quran.db")
-  console.log('production');
-  console.log(hasil);
+  // console.log('production');
+  // console.log(hasil);
   var quranDB = new Datastore({ filename: hasil, autoload: false, onload:function(error) {console.log('haha');} });
 
 }
 
-@connect(state => ({ verseIndex: state.verseIndex, layout: state.layout, font: state.font}),)
+@connect(state => ({
+  verseIndex: state.verseIndex,
+  layout: state.layout,
+  query: state.query,
+  font: state.font
+}),)
 export default class Content extends Component {
 
   constructor(props) {
@@ -47,11 +52,16 @@ export default class Content extends Component {
     quranDB.loadDatabase(this.loadContent);
   }
 
-  componentWillReceiveProps(nextProps){
-    var neQuery = QueryParser(nextProps.query)
-    quranDB.find(neQuery, this.doSomething);
-
+  componentWillUpdate(pp, ps){
+    const { query } = this.props;
+    if (pp.query !== query) {
+      if (pp.query !== undefined) {
+        var neQuery = QueryParser(pp.query)
+        quranDB.find(neQuery, this.doSomething);
+      }
+    }
   }
+
 
   prevIndex = (event) => {
     event.stopPropagation();
@@ -90,6 +100,7 @@ export default class Content extends Component {
   }
 
   loadContent = () => {
+    console.log('STARTED');
     quranDB.find({ c: "20" , v: "2" }, this.doSomething);
   }
   // tesSearch = () => {

@@ -9,10 +9,12 @@ import styles from './Home.css';
 // import NavBar from './NavBar/NavBar';
 import Submenu from './Submenu/Submenu';
 import Content from './Content/Content';
+import { updateQuery } from './../actions/query';
 
 @connect(
   state => ({
     layout: state.layout,
+    query: state.query,
    }),
   )
 export default class Home extends Component {
@@ -32,8 +34,8 @@ export default class Home extends Component {
   }
 
   searchCallback = (query) => {
-    var toSet2 = { query:  query }
-    this.setState(toSet2);
+    const { dispatch } = this.props;
+    dispatch(updateQuery(query));
   }
 
 
@@ -120,7 +122,7 @@ export default class Home extends Component {
             </div>
           </Resizable>}
           <div style={mainContentStyle}>
-            <Content query={this.state.query}/>
+            <Content/>
           </div>
       </div>
 
