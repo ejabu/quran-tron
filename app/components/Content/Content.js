@@ -78,6 +78,7 @@ export default class Content extends Component {
         bahasa:  data[0]['b'],
         chapter:  data[0]['c'],
         verse:  data[0]['v'],
+        traditional:  data[0]['t'],
       });
     }
 
@@ -142,8 +143,8 @@ export default class Content extends Component {
 
           <div className={styles.content}>
             { layout.font == "OLD_FONT" ?
-              <div className={styles.arabic}>
-                {this.state.bahasa}
+              <div className={styles.traditional}>
+                {this.state.traditional}
               </div>
                 :
               <div className={styles.arabic}>

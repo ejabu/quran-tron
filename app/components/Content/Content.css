@@ -16,6 +16,13 @@
   margin-bottom: 14px;
   font-family: "Uthmanic";
 }
+.traditional {
+  direction: rtl;
+  font-size: 62px;
+  line-height: 89px;
+  margin-bottom: 14px;
+  font-family: "TradionalArabic";
+}
 
 .bahasa {
   font-size: 22px;

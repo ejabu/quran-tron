@@ -83,8 +83,8 @@ export default class Submenu extends Component {
           <a className="arrowLeft" ></a>
         </div>
         <div className="uk-float-right">
-          <div className={styles.buttonMenu} onMouseDown={this.toggleFont.bind(this)}>
-            { layout.font == "OLD_FONT" ?  <a className="" >A</a> : <a className="" >B</a> }
+          <div className={styles.buttonMenu+" "+ styles.buttonFont} onMouseDown={this.toggleFont.bind(this)}>
+            { layout.font == "OLD_FONT" ?  <a className="" >Tradional Arabic</a> : <a className="" >Uthman Script</a> }
           </div>
           <div className={styles.buttonMenu} onMouseDown={this.smallMenu.bind(this)}>
 

@@ -8,7 +8,7 @@ function findByIndex(query) {
 }
 function findByKeyword(query) {
   var regexBahasa = new RegExp(query, "i")
-  return {b: regexBahasa}
+  return {w: regexBahasa}
 }
 
 export function QueryParser(query) {

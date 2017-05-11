@@ -1,0 +1,3 @@
+Pas akhir akhir
+
+npm install --save-dev babel-plugin-transform-decorators-legacy

@@ -24,6 +24,10 @@
   font-family: 'Uthmanic';
   src: url("../fonts/UthmanicHafs1 Ver09_1.ttf") format("truetype");
 }
+@font-face {
+  font-family: 'TradionalArabic';
+  src: url("../fonts/TradionalArabic.ttf") format("truetype");
+}
 
 @font-face {
   font-family: 'EvilIcons';
