@@ -53,7 +53,13 @@ export default class SearchBox extends Component {
         }
         else{
           var neQuery = QueryParser(event.target.value)
-          quranDB.find(neQuery).sort({c:1,v:1}).exec(this.doSomething)
+
+          // Keeping only the given fields but removing _id
+          // db.find({ planet: 'Mars' }, { planet: 1, system: 1, _id: 0 }, function (err, docs) {
+            // docs is [{ planet: 'Mars', system: 'solar' }]
+          // });
+          quranDB.find(neQuery, { c: 1, v: 1, _id: 0 }).sort({i:1}).exec(this.doSomething)
+          // , { c: 1, _id: 0 }
         }
       }
     }
@@ -73,7 +79,7 @@ export default class SearchBox extends Component {
     }
     else{
       var neQuery = QueryParser(this.state.search)
-      quranDB.find(neQuery).sort({c:1,v:1}).exec(this.doSomething)
+      quranDB.find(neQuery, { c: 1, v: 1, _id: 0 }).sort({i:1}).exec(this.doSomething)
 
     }
   }

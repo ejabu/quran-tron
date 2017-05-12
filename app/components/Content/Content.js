@@ -66,14 +66,16 @@ export default class Content extends Component {
   prevIndex = (event) => {
     event.stopPropagation();
     var nextAyah = parseInt(this.state.index)-1
-    var nextAyahStr = nextAyah.toString()
+    // var nextAyahStr = nextAyah.toString()
+    var nextAyahStr = ("000" + nextAyah).slice(-4);
     var query = { i: nextAyahStr}
     quranDB.find(query, this.doSomething);
   }
   nextIndex = (event) => {
     event.stopPropagation();
     var nextAyah = parseInt(this.state.index)+1
-    var nextAyahStr = nextAyah.toString()
+    // var nextAyahStr = nextAyah.toString()
+    var nextAyahStr = ("000" + nextAyah).slice(-4);
     var query = { i: nextAyahStr}
     quranDB.find(query, this.doSomething);
   }
