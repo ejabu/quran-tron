@@ -108,7 +108,7 @@ export default class Home extends Component {
           customClass="submenu"
           width={220}
           height={"100%"}
-          minWidth={160}
+          minWidth={200}
           minHeight={160}
           maxWidth={480}
           maxHeight={480}
