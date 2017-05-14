@@ -1,15 +1,16 @@
 {
-  "name": "Quran",
-  "productName": "Quran",
+  "name": "Quran_Offline",
+  "_name": "When Compiling",
+  "productName": "Quran Offline",
+  "_productName": "Installation Package & Program List in Control Panel",
   "version": "1.2.0",
-  "artifactName": "Quran Indonesia",
-  "description": "Quran based on Electron",
-  "_description": "Description Will be show on Task Manager",
+  "description": "Quran Offline",
+  "_description": "Task Manager dan Properties",
   "main": "./main.js",
   "author": {
-    "name": "Muhammad Fahreza",
-    "email": "muhammadfahreza@gmail.com",
-    "url": "https://github.com/ejabu/quran-tron"
+    "name": "Aysaar",
+    "email": "unshur.aysaar@gmail.com",
+    "url": "https://aysaar.github.io/quran"
   },
   "license": "MIT",
   "dependencies": {

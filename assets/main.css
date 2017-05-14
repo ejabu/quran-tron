@@ -1,0 +1,34 @@
+body{
+  overflow: hidden;
+}
+.main {
+  border: 1px solid #f4f4f4;
+  max-width: 524px;
+  max-height: 238px;
+  display: flex;
+}
+.logo {
+  background-image: url("icons/win/icon.ico");
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 238px;
+  width: 238px;
+}
+.center {
+  margin: auto;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  width: 50%;
+  font-size: 13px;
+
+}
+.version_below{
+  font-size: 12px;
+  margin-top: 10px;
+}
+.help {
+  line-height: 23px;
+}
+.date {
+  margin-top: 30px;
+}
