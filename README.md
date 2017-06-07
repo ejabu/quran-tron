@@ -4,6 +4,9 @@
 
 <div align="center"><strong>Quran Offline</strong></div>
 <div align="center">A beautiful Quran Reader, Offline, King Fahd Glorious Quran Printing Complex's Script, Uthmanic Hafs Font</div>
+<div align="center">
+	<a href="https://aysaar.github.io/quran">Download v1.2.0 Windows Installer</a>
+</div>
 
 <br />
 
