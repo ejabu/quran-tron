@@ -14,7 +14,7 @@
   <dt>Quick Search</dt>
   <dd>Easily type words or even letters in Bahasa and Arabic. Tashkeel or No Tashkeel</dd>
 
-	<dt>Quick Copy-Paste</dt>
+  <dt>Quick Copy-Paste</dt>
   <dd>Easily copy-paste Verses of Quran</dd>
 	
   <dt>Touch Support</dt>
@@ -27,7 +27,7 @@
   <dd>No need to access internet anymore to find verses in Quran, it's embedded in small database powered by NeDB</dd>
 
   
-	<sub><i>Keywords: Quran, Arabic, Searchable, Bahasa, Tashkeel, No Tashkeel, Copyable</i></sub>
+  <sub><i>Keywords: Quran, Arabic, Searchable, Bahasa, Tashkeel, No Tashkeel, Copyable</i></sub>
 	
 </dl>
 
