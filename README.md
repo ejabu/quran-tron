@@ -38,15 +38,13 @@
 
 ## Sources
 
-- [Bahasa Script](http://qurandatabase.org/Database.aspx): Authoritative and Complete Thorough Bahasa Translation of The Noble Quran
+- [Quran Script](http://fonts.qurancomplex.gov.sa/download/UthmanicHafs1Ver09Word.zip): Original Quran Script made by **King Fahd Quran Printing Complex**
+- [Uthmanic Font](http://fonts.qurancomplex.gov.sa/?page_id=42): Beautiful Uthmanic Hafs font from **King Fahd Quran Printing Complex**
+- [Traditional Arabic Font](https://www.microsoft.com/typography/fonts/family.aspx?FID=264): Standard windows arabic font
+- [Bahasa Script](http://qurandatabase.org/Database.aspx): Authoritative and complete thorough bahasa translation of the Noble Quran
 - [Roboto Font](https://fonts.google.com/specimen/Roboto): "Modern, yet approachable" and "emotional" font from **Google**
-- [Quran Hafs Script](http://fonts.qurancomplex.gov.sa/download/UthmanicHafs1Ver09Word.zip): Original Script from **King Fahd Quran Printing Complex**
-- [Uthmanic Hafs Font](http://fonts.qurancomplex.gov.sa/?page_id=42): Beautiful Arabic Font from **King Fahd Quran Printing Complex**
-- [Traditional Arabic Font](https://www.microsoft.com/typography/fonts/family.aspx?FID=264): Standard Windows Arabic Font
-
 
 
 ## License
 
-This project is licensed under the MIT license, Copyright (c) 2017 Aysaar
-For more information see `LICENSE.md`.
+This project is licensed under the MIT license, Copyright (c) 2017 Aysaar. For more information see `LICENSE.md`.
