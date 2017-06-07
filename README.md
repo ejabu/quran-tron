@@ -33,6 +33,14 @@
 
 
 
+## Sources
+
+- [Quran Script](http://fonts.qurancomplex.gov.sa/download/UthmanicHafs1Ver09Word.zip): Original Script from **King Fahd Quran Printing Complex**
+- [Uthmanic Hafs Font](http://fonts.qurancomplex.gov.sa/?page_id=42): Beautiful Arabic Font from **King Fahd Quran Printing Complex**
+- [Traditional Arabic Font](https://www.microsoft.com/typography/fonts/family.aspx?FID=264): Standard Windows Arabic Font
+
+
+
 ## License
 
 This project is licensed under the MIT license, Copyright (c) 2017 Aysaar
