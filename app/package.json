@@ -1,10 +1,10 @@
 {
   "name": "Quran_Offline",
   "_name": "When Compiling",
-  "productName": "Quran Offline",
+  "productName": "Aysaar Quran Offline 1.2",
   "_productName": "Installation Package & Program List in Control Panel",
   "version": "1.2.0",
-  "description": "Quran Offline",
+  "description": "Aysaar Quran Offline 1.2",
   "_description": "Task Manager dan Properties",
   "main": "./main.js",
   "author": {
