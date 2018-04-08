@@ -65,9 +65,9 @@
     },
     "linux": {
       "target": [
-        "deb",
-        "AppImage"
-      ]
+        "deb"
+      ],
+      "fpm": ["--after-install=build/after-install.sh"]
     }
   },
   "directories": {

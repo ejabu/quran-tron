@@ -20,6 +20,9 @@ if (process.env.NODE_ENV === 'development') {
   require('module').globalPaths.push(p); // eslint-disable-line
 }
 
+if (process.platform !== 'linux'){
+  app.setPath('userData', '/home/'+process.env.USER+'/.ajaba')
+}
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin')
     app.quit();

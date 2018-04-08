@@ -22,9 +22,9 @@ if (process.env.NODE_ENV === 'development') {
   var quranDB = new Datastore({ filename: db_file_path, autoload: false, onload:function(error) {console.log('haha');} });
 
 } else {
-  var exePath = app.getPath('exe')
-  var hasil = path.join(exePath, "../assets/quran.db")
-  var quranDB = new Datastore({ filename: hasil, autoload: false, onload:function(error) {console.log('haha');} });
+  var userDataPath = app.getPath('userData');
+  var db_file_path = path.join(userDataPath, "/assets/quran.db")
+  var quranDB = new Datastore({ filename: db_file_path, autoload: false, onload:function(error) {console.log('haha');} });
 
 }
 
@@ -79,7 +79,7 @@ export default class Content extends Component {
     quranDB.find(query, this.doSomething);
   }
   doSomething = (err, data) => {
-    console.log(data);
+    // console.log(data);
     if (err) return console.log(err);
     if (data===undefined) return console.log('undefined');
     if (data.length > 0){
