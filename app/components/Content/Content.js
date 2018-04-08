@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   if (process.platform == 'linux'){
     const userDataPath = app.getPath('userData');
-    var db_file_path = path.join(userDataPath, "/assets/quran.db")
+    var db_file_path = path.join(process.env.HOME,"/.ajaba/assets/quran.db")
   }
   else {
     const exePath = app.getPath('exe')
