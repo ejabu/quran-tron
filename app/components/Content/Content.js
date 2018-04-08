@@ -7,25 +7,23 @@ import { updateVerseIndex } from '../../actions/verseIndex';
 import { QueryParser } from './SearchEngine';
 import { showMenu } from '../../actions/layout';
 
+import path from 'path';
 var remote = require('electron').remote;
 var fs = require('fs');
 var Datastore = require('nedb');
 var app = electron.remote.app
 
 if (process.env.NODE_ENV === 'development') {
-  var exePath = app.getPath('exe')
-  var path     = require('path');
-  var hasil = path.join(exePath, "../assets/quran.db")
-  // console.log('development');
-  // console.log(hasil);
-  var quranDB = new Datastore({ filename: 'D:/quran.db', autoload: false, onload:function(error) {console.log('haha');} });
+  //base directory is different during development mode
+  //we should use process.cwd() rather than app.getPath
+  //see this https://github.com/chentsulin/electron-react-boilerplate/issues/374
+  const basic_dir = process.cwd()
+  var db_file_path = path.join(basic_dir, "/assets/quran.db")
+  var quranDB = new Datastore({ filename: db_file_path, autoload: false, onload:function(error) {console.log('haha');} });
 
 } else {
   var exePath = app.getPath('exe')
-  var path     = require('path');
   var hasil = path.join(exePath, "../assets/quran.db")
-  // console.log('production');
-  // console.log(hasil);
   var quranDB = new Datastore({ filename: hasil, autoload: false, onload:function(error) {console.log('haha');} });
 
 }
@@ -57,6 +55,7 @@ export default class Content extends Component {
     if (pp.query !== query) {
       if (pp.query !== undefined) {
         var neQuery = QueryParser(pp.query)
+        console.log(neQuery);
         quranDB.find(neQuery, this.doSomething);
       }
     }
@@ -80,6 +79,7 @@ export default class Content extends Component {
     quranDB.find(query, this.doSomething);
   }
   doSomething = (err, data) => {
+    console.log(data);
     if (err) return console.log(err);
     if (data===undefined) return console.log('undefined');
     if (data.length > 0){

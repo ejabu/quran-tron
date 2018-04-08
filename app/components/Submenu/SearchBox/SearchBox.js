@@ -6,20 +6,22 @@ import styles from './SearchBox.css';
 import { resultChanged } from '../../../actions/verseIndex';
 import { QueryParser } from './SearchEngine';
 
+import path from 'path';
 var remote = require('electron').remote;
 var fs = require('fs');
 var Datastore = require('nedb');
 var app = electron.remote.app
 
 if (process.env.NODE_ENV === 'development') {
-  var exePath = app.getPath('exe')
-  var path     = require('path');
-  var hasil = path.join(exePath, "../assets/quranSearch.db")
-  var quranDB = new Datastore({ filename: 'D:/quranSearch.db', autoload: false, onload:function(error) {console.log('haha');} });
+  //base directory is different during development mode
+  //we should use process.cwd() rather than app.getPath
+  //see this https://github.com/chentsulin/electron-react-boilerplate/issues/374
+  const basic_dir = process.cwd()
+  var db_file_path = path.join(basic_dir, "/assets/quranSearch.db")
+  var quranDB = new Datastore({ filename: db_file_path, autoload: false, onload:function(error) {console.log('haha');} });
 
 } else {
   var exePath = app.getPath('exe')
-  var path     = require('path');
   var hasil = path.join(exePath, "../assets/quranSearch.db")
   var quranDB = new Datastore({ filename: hasil, autoload: false, onload:function(error) {console.log('haha');} });
 
