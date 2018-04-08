@@ -24,11 +24,11 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   if (process.platform == 'linux'){
     const userDataPath = app.getPath('userData');
-    const db_file_path = path.join(userDataPath, "/assets/quran.db")
+    var db_file_path = path.join(userDataPath, "/assets/quran.db")
   }
   else {
     const exePath = app.getPath('exe')
-    const db_file_path = path.join(exePath, "../assets/quran.db")
+    var db_file_path = path.join(exePath, "../assets/quran.db")
   }
   var quranDB = new Datastore({ filename: db_file_path, autoload: false, onload:function(error) {console.log('haha');} });
 
