@@ -99,7 +99,8 @@
     "webpack",
     "react-hot"
   ],
-  "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
+  "homepage": "https://aysaar.github.io/quran",
+  "_homepage_linux": "Muncul di tombol website",
   "devDependencies": {
     "asar": "^0.12.3",
     "babel-core": "^6.18.2",
