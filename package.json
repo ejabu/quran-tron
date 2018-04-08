@@ -18,6 +18,7 @@
     "dev": "npm run hot-server -- --start-hot",
     "package": "npm run build && build --publish never",
     "pwin": "npm run build && build --win --x64",
+    "plin": "npm run build && build --linux",
     "package-all": "npm run build && build -mwl",
     "cleanup": "mop -v"
   },
