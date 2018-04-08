@@ -34,6 +34,53 @@
 	
 </dl>
 
+## Install
+I strongly *recommend* develop using a Yarn package manager. [See here to Install Yarn](https://yarnpkg.com/en/docs/install)
+
+### 1. Create a directory with any name. Example : quran-dev
+```
+mkdir quran-dev
+```
+
+### 2. Move inside to the directory
+```
+cd quran-dev
+```
+
+### 3. Initialize Git in the folder
+```
+git init
+```
+
+### 4. Clone this repository
+```
+git remote add origin https://github.com/ejabu/quran-tron.git
+git pull origin master
+```
+
+### 5. Install all packages needed to develop
+```
+yarn
+```
+
+### 6. Start Developing
+```
+npm run dev
+```
+
+If you wish to build it on Windows run this Script. It successfully was built on Windows 10 machine.
+
+### Build installation package for Windows Platform
+```
+npm run pwin
+```
+
+If you wish to build it on Linux run this Script. It successfully was built on Linux Ubuntu 16.04 machine.
+
+### Build installation package for Linux Platform
+```
+npm run plin
+```
 
 
 ## Sources
