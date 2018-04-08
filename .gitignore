@@ -42,3 +42,6 @@ dist
 main.js
 main.js.map
 npm-debug.log.*
+
+#Unnecessary Files
+npm-shrinkwrap.json
