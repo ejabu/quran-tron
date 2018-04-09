@@ -1,11 +1,13 @@
 {
-  "name": "Quran_Offline",
+  "name": "Aysaar_Quran_Offline",
   "_name": "When Compiling",
   "productName": "Aysaar Quran Offline",
   "_productName": "Installation Package & Program List in Control Panel",
-  "version": "1.2.5",
-  "description": "Quran Offline",
+  "_productName_linux": "Nama Folder Linux OPT supaya bisa ke panggil pathnya",
+  "version": "1.3.0",
+  "description": "Aysaar Quran Offline",
   "_description": "Task Manager dan Properties",
+  "_description_linux": "Nama Aplikasi di Linux",
   "main": "./main.js",
   "author": {
     "name": "Aysaar",
