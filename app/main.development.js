@@ -356,7 +356,7 @@ app.on('ready', async() => {
             type: "separator"
           },
           {
-            label: 'Version 1.2.0',
+            label: 'Version 1.3.0',
             enabled: false,
           }
         ] : [ //Ini kalau Production
@@ -399,7 +399,7 @@ app.on('ready', async() => {
             type: "separator"
           },
           {
-            label: 'Version 1.2.0',
+            label: 'Version 1.3.0',
             enabled: false,
           }
         ]
